@@ -2,7 +2,7 @@
 import tabula
 
 # Read pdf into DataFrame
-df = tabula.read_pdf("Airports/EC-AD-2.1VABO-en-GB.pdf", output_format='csv', lattice=True, pages=4) #, area=(406, 24, 695, 589))
+df = tabula.read_pdf("Airports/EC-AD-2.1VAKE-en-GB.pdf", output_format='csv', lattice=True, pages=3, multiple_tables=True) #, area=(406, 24, 695, 589))
 #Option to select pages automatically yet to be added
 
 clean_df = df.replace('\r',' ', regex=True) # This replaces \r in lattice mode to spaces

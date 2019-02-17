@@ -1,3 +1,4 @@
+# Thanks to user chezou on GitHub
 import tabula
 
 # Read pdf into DataFrame

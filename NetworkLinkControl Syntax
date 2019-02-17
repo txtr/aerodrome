@@ -1,0 +1,12 @@
+<NetworkLinkControl>
+  <minRefreshPeriod>0</minRefreshPeriod>           <!-- float -->
+  <maxSessionLength>-1</maxSessionLength>          <!-- float --> 
+  <cookie>...</cookie>                             <!-- string -->
+  <message>...</message>                           <!-- string -->
+  <linkName>...</linkName>                         <!-- string -->
+  <linkDescription>...</linkDescription>           <!-- string -->
+  <linkSnippet maxLines="2">...</linkSnippet>      <!-- string -->
+  <expires>...</expires>                           <!-- kml:dateTime -->
+  <Update>...</Update>                             <!-- Change,Create,Delete -->
+  <AbstractView>...</AbstractView>                 <!-- LookAt or Camera -->
+</NetworkLinkControl>

@@ -1,0 +1,28 @@
+<Model id="ID">
+  <!-- specific to Model -->
+  <altitudeMode>clampToGround</altitudeMode>
+      <!-- kml:altitudeModeEnum: clampToGround,relativeToGround,or absolute -->
+      <!-- or, substitute gx:altitudeMode: clampToSeaFloor, relativeToSeaFloor -->
+  <Location>
+    <longitude></longitude> <!-- kml:angle180 -->
+    <latitude></latitude>   <!-- kml:angle90 -->
+    <altitude>0</altitude>  <!-- double -->
+  </Location>
+  <Orientation>
+    <heading>0</heading>    <!-- kml:angle360 -->
+    <tilt>0</tilt>          <!-- kml:anglepos180 -->
+    <roll>0</roll>          <!-- kml:angle180 -->
+  </Orientation>
+  <Scale>
+    <x>1</x>                <!-- double -->
+    <y>1</y>                <!-- double -->
+    <z>1</z>                <!-- double -->
+  </Scale>
+  <Link>...</Link>
+  <ResourceMap>
+    <Alias>
+      <targetHref>...</targetHref>   <!-- anyURI -->
+      <sourceHref>...</sourceHref>   <!-- anyURI -->
+    </Alias>
+  </ResourceMap>
+</Model>

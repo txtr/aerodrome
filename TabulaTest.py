@@ -41,4 +41,4 @@ def ConvertPDFToCSV(source_pdf: str, dest_csv:str):
     
     return df;
 
-print ((ConvertPDFToCSV(".pdf","unused.csv")));
+print ((ConvertPDFToCSV("Airports/EC-AD-2.1VABO-en-GB.pdf","unused.csv")));

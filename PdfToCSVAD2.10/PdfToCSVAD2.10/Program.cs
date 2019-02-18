@@ -40,7 +40,7 @@ namespace PdfToCSVAD210
             {
                 // Add CSV Header to Make it Easier to Understand
                 // What Each Column means
-                w.WriteLine("RunwayAreaAffected,ObstacleType, Latitude, Longitude,Elevation( in FT),Marking,Remarks");
+                w.WriteLine("Runway Area Affected,Obstacle Type,Latitude,Longitude,Elevation( in FT),Marking,Remarks");
                 foreach (List<string> obstacle in obstacles)
                 {
                     // Write A Comma Separated Row to Document
@@ -52,7 +52,6 @@ namespace PdfToCSVAD210
 
         public static List<List<string>> GetObstacleList(string file_path)
         {
-            PdfReader reader = new PdfReader(file_path);
             TableExtractionStrategy strategy = new TableExtractionStrategy
             {
                 // Modify this value if Required
@@ -62,39 +61,43 @@ namespace PdfToCSVAD210
 
             // Setting this to true will add the required value
             bool add = false;
-            // Iterate through all the pages
-            for (int i = 1; i < reader.NumberOfPages; i++)
-            {
-                // Extract the Page Data According to the pre-decided Strategy
-                string page = PdfTextExtractor.GetTextFromPage(reader, i, strategy);
-                // As this contains AD 2.10 in Range
-                // Start Adding
-                if (!add/*If add is true, it's already found*/ && page.Contains("AD 2.10"))
+            using (PdfReader reader = new PdfReader(file_path))
+            {                // Iterate through all the pages
+                for (int i = 1; i < reader.NumberOfPages; i++)
                 {
-                    add = true;
-                }
-                //As we were Supposed to Extract only
-                // AD2.10 and not anything else
-                // Our work here is done
-                // This is Because
-                // AD2.11 Comes after AD2.10
-                if (add/*If add is false, no need to find this*/ && page.Contains("AD 2.11"))
-                {
-                    break;
-                }
-                // If Add is Disabled Even now
-                // It means we have Not Reached AD 2.10 Stage
-                // So Clear Strategy 
-                // This is Done to Reduce Amount of Processing we need to do later
-                if (!add)
-                {
-                    strategy.Chunks.Clear();
+                    // Extract the Page Data According to the pre-decided Strategy
+                    string page = PdfTextExtractor.GetTextFromPage(reader, i, strategy);
+                    // As this contains AD 2.10 in Range
+                    // Start Adding
+                    if (!add/*If add is true, it's already found*/ && page.Contains("AD 2.10"))
+                    {
+                        add = true;
+                    }
+                    //As we were Supposed to Extract only
+                    // AD2.10 and not anything else
+                    // Our work here is done
+                    // This is Because
+                    // AD2.11 Comes after AD2.10
+                    if (add/*If add is false, no need to find this*/ && page.Contains("AD 2.11"))
+                    {
+                        break;
+                    }
+                    // If Add is Disabled Even now
+                    // It means we have Not Reached AD 2.10 Stage
+                    // So Clear Strategy 
+                    // This is Done to Reduce Amount of Processing we need to do later
+                    if (!add)
+                    {
+                        strategy.Clear();
+                    }
                 }
             }
             // The Rest is a Hack
             // A Well Designed Hack that works on All Airports
 
             List<List<string>> tables = strategy.GetTable();
+            strategy.Clear();
+
             // Remove All Unrequired Data from the Table
             // This Junk Gets Generated Given it's presence in table's periphery
             // We Know this Junk is Useless as
@@ -104,13 +107,13 @@ namespace PdfToCSVAD210
             || x[0] == "123456"/*Table Heading Index*/
             // Rest All Are always present
             // At the Top of the page
-            || x[0].StartsWith("AD 2")
-            || x[0].StartsWith("AIRAC effective date")
-            || x[0].StartsWith("Airports Authority of India")
-            || x[0].StartsWith("AMDT")
+            || x[0].TrimStart().StartsWith("AD 2 VA")
+            || x[0] == ("AIRAC effective date")
+            || x[0].TrimStart().StartsWith("Airports Authority of India")
+            || x[0].TrimStart().StartsWith("AMDT ")
             || x[0] == "India"
-            || x[0].StartsWith("AIP")
-            || IsNumericDate(x[0])));
+            || x[0].TrimStart().StartsWith("AIP")
+            || IsUselessNumericDate(x[0])));
 
             List<List<string>> result = new List<List<string>>();
             for (int i = 0; i < tables.Count - 1;)
@@ -248,9 +251,12 @@ namespace PdfToCSVAD210
                     // Also note that for a Specific Airport, BB/Mumbai/BOM we find that
                     // The PDF Has COMMUNICATION but this is written on the next line
                     // As A result to Correct this issue, 
-                    // we will replace all occurences of "COMMUNICATIO N"
+                    // we will replace all occurrences of "COMMUNICATIO N"
                     // with COMMUNICATION
-                    items[i] = items[i].Replace("COMMUNICATIO N", "COMMUNICATION");
+                    // Replace Wrongly Placed Hyphens as well
+                    items[i] = items[i].Trim().Replace("COMMUNICATIO N", "COMMUNICATION")
+                    // Replace Hyphens
+                    .Replace("- ", "-").Replace(" -", "-");
                 }
             }
 
@@ -259,7 +265,7 @@ namespace PdfToCSVAD210
         }
 
         // Also read https://docs.microsoft.com/en-us/dotnet/api/system.datetime.tryparseexact?redirectedfrom=MSDN&view=netframework-4.7.2
-        private static bool IsNumericDate(string val)
+        private static bool IsUselessNumericDate(string val)
         {
             DateTime dt = new DateTime();
             return DateTime.TryParseExact(val.Trim(), "dd MMM yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dt);

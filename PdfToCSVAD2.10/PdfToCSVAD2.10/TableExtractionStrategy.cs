@@ -110,6 +110,11 @@ namespace PdfToCSVAD210
             return lines;
         }
 
+        internal void Clear()
+        {
+            Chunks.Clear();
+        }
+
         public struct TableTextChunk
         {
             public Rectangle Rectangle;

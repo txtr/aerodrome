@@ -1,6 +1,6 @@
 # SIH 2019 Project
 ## Title : Presenting Aerodrome Obstacles around an Aerodrome
-----------------------------------------------------------------
+
 #### Organization : Min. of Civil Aviation
 #### Technology Bucket : Software - Web App development
 #### Difficulty : Complex
@@ -9,7 +9,7 @@
 1. Vedant Sahai @Vedantsahai18
 2. Arpita Isaac 
 3. Shubham Pednekar @txtr
-4. Pratik Chaudhary
+4. Pratik Chowdhury @pratikpc
 5. Jason Dcosta @jsndc99
 6. Elvis Dsouza @ejson03
 ----------------------------------------------------------------

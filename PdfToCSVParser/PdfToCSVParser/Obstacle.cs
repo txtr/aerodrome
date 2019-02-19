@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PdfToCSVAD210
+namespace PdfToCSVParser
 {
     internal class CoOrdinate
     {

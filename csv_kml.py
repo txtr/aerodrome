@@ -1,14 +1,12 @@
-import csv
-#Input the file name.
-#fname = raw_input("Enter file name WITHOUT extension: ")
-data = csv.reader(open('Bom.csv'), delimiter = ',')
-#Skip the 1st header row.
-next(data)
-#Open the file to be written.
-f = open('Bom_test.kml', 'w')
+# Written by Jason D'Costa
+# Pratik Chowdhury helped criticize my music choice of heavy metal
 
-#Writing the kml file.
-f.write("<?xml version='1.0' encoding='UTF-8'?>\n")
+import csv
+data = csv.reader(open('Bom.csv'), delimiter = ',')
+next(data)  #Skip the 1st header row.
+f = open('Bom_test.kml', 'w')   #Open the file to be written.
+
+f.write("<?xml version='1.0' encoding='UTF-8'?>\n") #Writing the kml file.
 f.write("<kml xmlns='http://earth.google.com/kml/2.1'>\n")
 f.write("<Document>\n")
 f.write("   <name>" + 'Bom_test.kml' +"</name>\n")
@@ -24,5 +22,3 @@ f.write("</Document>\n")
 f.write("</kml>\n")
 f.close()
 print ("File Created.")
-#print ("Press ENTER to exit.")
-#raw_input()

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfToCSVAD2.10", "PdfToCSVAD2.10\PdfToCSVAD2.10.csproj", "{D29D6C0F-A6A8-41D2-9B18-6283F7E3BE28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfToCSVParser", "PdfToCSVParser\PdfToCSVParser.csproj", "{D29D6C0F-A6A8-41D2-9B18-6283F7E3BE28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

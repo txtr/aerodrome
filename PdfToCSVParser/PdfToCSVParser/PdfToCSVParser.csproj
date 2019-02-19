@@ -3,7 +3,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <StartupObject>PdfToCSVAD210.Program</StartupObject>
+    <StartupObject></StartupObject>
+    <AssemblyName>PdfToCSVParser</AssemblyName>
+    <RootNamespace>PdfToCSVParser</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

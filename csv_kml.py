@@ -1,28 +1,28 @@
-f = open('Bom.csv')
-a = f.read()
+import csv
+#Input the file name.
+#fname = raw_input("Enter file name WITHOUT extension: ")
+data = csv.reader(open('Bom.csv'), delimiter = ',')
+#Skip the 1st header row.
+next(data)
+#Open the file to be written.
+f = open('Bom_test.kml', 'w')
+
+#Writing the kml file.
+f.write("<?xml version='1.0' encoding='UTF-8'?>\n")
+f.write("<kml xmlns='http://earth.google.com/kml/2.1'>\n")
+f.write("<Document>\n")
+f.write("   <name>" + 'Bom_test.kml' +"</name>\n")
+for row in data:
+    f.write("   <Placemark>\n")
+    f.write("       <name>" + str(row[1]) + "</name>\n")
+    f.write("       <description>" + str(row[0]) + "</description>\n")
+    f.write("       <Point>\n")
+    f.write("           <coordinates>" + str(row[3]) + "," + str(row[2]) + "," + str(row[4]) + "</coordinates>\n")
+    f.write("       </Point>\n")
+    f.write("   </Placemark>\n")
+f.write("</Document>\n")
+f.write("</kml>\n")
 f.close()
-b = a.split('\n')
-r = '<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2">'
-for x in b:
-  x = x.replace(', ',',') #.decode('latin-1','ignore')
-  y = x.split(',')
-  if len(y) < 3:
-    break
-  elif len(y) > 3:
-    desc = ' '.join(y[3:])
-  else:
-    desc = 'No description'
- 
-  # Replacing non-XML-allowed characters here (add more if needed)
-  y[2] = y[2].replace('&','&amp;')
- 
-  desc = desc.replace('&','&amp;')
- 
-  r += '\n<Placemark><name>'+y[2].encode('utf-8','xmlcharrefreplace')+'</name>' \
-    '\n<description>'+desc.encode('utf-8','xmlcharrefreplace')+'</description>\n' \
-    '<Point><coordinates>'+str(y[0]).encode('utf-8','xmlcharrefreplace')+','+str(y[1]).encode('utf-8','xmlcharrefreplace')+',0</coordinates></Point>\n</Placemark>'
- 
-r += '\n</kml>'
-f = open('Bom.kml','w')
-f.write(r)
-f.close()
+print ("File Created.")
+#print ("Press ENTER to exit.")
+#raw_input()

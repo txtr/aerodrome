@@ -1,5 +1,5 @@
 # Written by Jason D'Costa
-# Pratik Chowdhury helped criticize my music choice of heavy metal
+# Pratik Chowdhury helped criticize my music choices including heavy metal
 
 import csv
 data = csv.reader(open('Bom.csv'), delimiter = ',')

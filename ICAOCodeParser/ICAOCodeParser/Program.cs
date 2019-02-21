@@ -1,6 +1,7 @@
 ﻿using PdfDownloader;
 using PdfToCSVParser;
 using System;
+using System.IO;
 
 namespace ICAOCodeParser
 {
@@ -19,7 +20,10 @@ namespace ICAOCodeParser
             string Root = args[0];
             string url = @"https://aim-india.aai.aero/eaip-v2/eAIP/EC-AD-1.3-en-GB.pdf";
             string DownloadPDF = Root + "/ICAO.pdf";
-            string ConvertCSV = Root + "/ICAO.csv";
+            // Provides Colon Separated Values as Airport Names have Commas Themselves
+            string ConvertCSV = Root + "/ICAO.colonsv";
+            // Creates the Directory at the Specified Location
+            Directory.CreateDirectory(Root);
             // Start Downloading From Specified URL
             AsyncPdfDownloader downloader = new AsyncPdfDownloader(url, DownloadPDF);
             // Halt till Download Conversion

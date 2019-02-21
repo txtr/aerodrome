@@ -31,7 +31,7 @@ namespace PdfToCSVParser
             PerformHackAndCleanUpOnObstacleList();
             //DisplayObstacles();
             Console.WriteLine("Writing to CSV");
-            WriteToCSV();
+            WriteToColonSV();
         }
 
         public void DisplayObstacles()
@@ -45,17 +45,17 @@ namespace PdfToCSVParser
                 Console.WriteLine();
             }
         }
-        public void WriteToCSV()
+        public void WriteToColonSV()
         {
             using (StreamWriter w = new StreamWriter(FileDestinationCSV))
             {
-                // Add CSV Header to Make it Easier to Understand
+                // Add Colon SV Header to Make it Easier to Understand
                 // What Each Column means
-                w.WriteLine("Codes,Name");
+                w.WriteLine("Codes:Name");
                 foreach (List<string> icaoRow in ICAOCodes)
                 {
-                    // Write A Comma Separated Row to Document
-                    w.WriteLine(icaoRow[1]/*ICAO*/ + "," + icaoRow[0]/*Name*/);
+                    // Write A Colon Separated Row to Document
+                    w.WriteLine(icaoRow[1]/*ICAO*/ + ":" + icaoRow[0]/*Name*/);
                     w.Flush();
                 }
             }
@@ -171,7 +171,7 @@ namespace PdfToCSVParser
             // The Headings also contain 6 Elements
             // Remove this by Passing
             ICAOCodes.RemoveAll(x => x.Count != 6 //6 Columns present
-             //Note that Last Column Always ends with the ICAO Code
+                                                  //Note that Last Column Always ends with the ICAO Code
                 || !x[5].EndsWith(x[1])
             );
 
@@ -181,7 +181,10 @@ namespace PdfToCSVParser
                 {
                     // Replace Double Consecutive Spaces by
                     // Single Space
-                    items[i] = Regex.Replace(items[i], @"\s+", " ").Trim();
+
+                    items[i] = Regex.Replace(items[i], @"\s+", " ")
+                                // Also convert CSIA , Mumbai to CSIA, Mumbai
+                                .Replace(" ,", ",").Trim();
                 }
             }
 

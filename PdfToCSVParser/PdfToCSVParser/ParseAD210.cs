@@ -6,42 +6,54 @@ using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
 
-namespace PdfToCSVAD210
+namespace PdfToCSVParser
 {
-    public class Program
+    public class ParseAD210
     {
-        private static void Main(string[] args)
+        private readonly string FileSourcePDF;
+        private readonly string FileDestinationCSV;
+        private List<List<string>> Obstacles { get; set; }
+
+        public ParseAD210(string FileSourcePDF, string FileDestinationCSV)
         {
-            if (args.Length != 2)
-            {
-                Console.WriteLine("Usage is app.exe source csv_dest");
-                return;
-            }
-            string sourceFileName = args[0];
-            List<List<string>> obstacles = GetObstacleList(sourceFileName);
-            DisplayObstacles(obstacles);
-            string destFileName = args[1];
-            WriteToCSV(destFileName, obstacles);
+            this.FileSourcePDF = FileSourcePDF;
+            this.FileDestinationCSV = FileDestinationCSV;
+            Obstacles = new List<List<string>>();
         }
 
-        private static void DisplayObstacles(List<List<string>> obstacles)
+        public void PerformConversion()
         {
-            foreach (List<string> list_data in obstacles)
+            ExtractObstacleList();
+            // The Hack Performs a Lot of Cleanup on Extracted
+            // Obstacle List
+            PerformHackAndCleanUpOnObstacleList();
+            //DisplayObstacles();
+            WriteToCSV();
+        }
+
+        public void DisplayObstacles()
+        {
+            foreach (List<string> list_data in Obstacles)
             {
                 Obstacle obstacle = new Obstacle(list_data);
                 //Display CSV Row Value of Obstacle
-                Console.WriteLine(obstacle + " : ");
+                Console.WriteLine(obstacle);
+
+                //foreach (string obstacle in list_data)
+                //{
+                //    Console.Write(obstacle + " : ");
+                //}
+                //Console.WriteLine();
             }
         }
-
-        public static void WriteToCSV(string destination, List<List<string>> obstacles)
+        public void WriteToCSV()
         {
-            using (StreamWriter w = new StreamWriter(destination))
+            using (StreamWriter w = new StreamWriter(FileDestinationCSV))
             {
                 // Add CSV Header to Make it Easier to Understand
                 // What Each Column means
                 w.WriteLine("Runway Area Affected,Obstacle Type,Latitude,Longitude,Elevation( in FT),Marking,Remarks");
-                foreach (List<string> obstacle in obstacles)
+                foreach (List<string> obstacle in Obstacles)
                 {
                     // Write A Comma Separated Row to Document
                     w.WriteLine(new Obstacle(obstacle));
@@ -49,22 +61,24 @@ namespace PdfToCSVAD210
                 }
             }
         }
-
-        public static List<List<string>> GetObstacleList(string file_path)
+        public void ExtractObstacleList()
         {
-            TableExtractionStrategy strategy = new TableExtractionStrategy
-            {
-                // Modify this value if Required
-                NextLineLookAheadDepth = 200,
-                NextCharacterThreshold = 1.0F
-            };
-
             // Setting this to true will add the required value
-            bool add = false;
-            using (PdfReader reader = new PdfReader(file_path))
-            {                // Iterate through all the pages
-                for (int i = 1; i < reader.NumberOfPages; i++)
+            using (PdfReader reader = new PdfReader(FileSourcePDF))
+            {
+                // If this is true, then add the page to
+                // Table List
+                bool add = false;
+                // Iterate through all the pages
+                for (int i = 1; i <= reader.NumberOfPages; i++)
                 {
+                    TableExtractionStrategy strategy = new TableExtractionStrategy
+                    {
+                        // Modify this value if Required
+                        NextLineLookAheadDepth = 350,
+                        NextCharacterThreshold = 1.0F
+                    };
+
                     // Extract the Page Data According to the pre-decided Strategy
                     string page = PdfTextExtractor.GetTextFromPage(reader, i, strategy);
                     // As this contains AD 2.10 in Range
@@ -72,6 +86,13 @@ namespace PdfToCSVAD210
                     if (!add/*If add is true, it's already found*/ && page.Contains("AD 2.10"))
                     {
                         add = true;
+                    }
+                    // If Add is Enabled now
+                    // It means we should insert
+                    if (add)
+                    {
+                        // Get A Data Set of All Obstacles from the Given PDF
+                        Obstacles.AddRange(strategy.GetTable());
                     }
                     //As we were Supposed to Extract only
                     // AD2.10 and not anything else
@@ -82,27 +103,20 @@ namespace PdfToCSVAD210
                     {
                         break;
                     }
-                    // If Add is Disabled Even now
-                    // It means we have Not Reached AD 2.10 Stage
-                    // So Clear Strategy 
-                    // This is Done to Reduce Amount of Processing we need to do later
-                    if (!add)
-                    {
-                        strategy.Clear();
-                    }
                 }
             }
+        }
+        // Also read https://docs.microsoft.com/en-us/dotnet/api/system.datetime.tryparseexact
+
+        public void PerformHackAndCleanUpOnObstacleList()
+        {
             // The Rest is a Hack
             // A Well Designed Hack that works on All Airports
 
-            List<List<string>> tables = strategy.GetTable();
-            strategy.Clear();
-
             // Remove All Unrequired Data from the Table
             // This Junk Gets Generated Given it's presence in table's periphery
-            // We Know this Junk is Useless as
-            // It has a Count of 1
-            tables.RemoveAll(x => x.Count == 1
+            // We Know Junk Data here always has a count of 1
+            Obstacles.RemoveAll(x => x.Count == 1
             && (x[0] == "In Approach/Take-off/Circling Area and at AD"
             || x[0] == "123456"/*Table Heading Index*/
             // Rest All Are always present
@@ -113,29 +127,44 @@ namespace PdfToCSVAD210
             || x[0].TrimStart().StartsWith("AMDT ")
             || x[0] == "India"
             || x[0].TrimStart().StartsWith("AIP")
-            || IsUselessNumericDate(x[0])));
+            || IsDateOfPDFPublishing(x[0])));
 
-            List<List<string>> result = new List<List<string>>();
-            for (int i = 0; i < tables.Count - 1;)
+            for (int i = 0; i < Obstacles.Count - 1;)
             {
-                List<string> table_cur = tables[i];
-                List<string> table_next = tables[i + 1];
+                List<string> table_cur = Obstacles[i];
+                List<string> table_next = Obstacles[i + 1];
 
-                // Take care of the Situation when
-                // One Line has
-                // "In circling area and"
-                // And the next line contains most of the Data
                 if (table_cur.Count == 1
                     && Obstacle.IsRunwayAreaAffected(table_cur[0])
                     && table_next.Count >= 1)
                 {
-                    table_cur[0] += table_next[0];
-                    for (int j = 1; j < table_next.Count; ++j)
+                    // Take care of the Situation when
+                    // One Line has
+                    // "In circling area and at AD"
+                    // And the next line contains rest of the Data
+                    if ((table_cur[0].TrimEnd().EndsWith("/APCH") && table_cur[0].Contains("/TKOF")) || (table_cur[0].TrimEnd().EndsWith("/TKOF") && table_cur[0].Contains("/APCH")) || (table_cur[0].Trim() == ("In circling area and at AD")))
                     {
-                        table_cur.Insert(0 + j, table_next[j]);
+                        for (int j = 0; j < table_next.Count; ++j)
+                        {
+                            table_cur.Insert(1 + j, table_next[j]);
+                        }
+                        Obstacles.RemoveAt(i + 1);
+                        continue;
                     }
-                    tables.RemoveAt(i + 1);
-                    continue;
+                    // Take care of the Situation when
+                    // One Line has
+                    // "In circling area and"
+                    // And the next line contains most of the Data
+                    else
+                    {
+                        table_cur[0] += table_next[0];
+                        for (int j = 1; j < table_next.Count; ++j)
+                        {
+                            table_cur.Insert(0 + j, table_next[j]);
+                        }
+                        Obstacles.RemoveAt(i + 1);
+                        continue;
+                    }
                 }
                 // When we have 3 Elements already
                 // And We need to add other 3 Elements
@@ -161,14 +190,14 @@ namespace PdfToCSVAD210
                             table_cur.Insert(2 + j, table_next[j]);
                         }
                         // Remove this Given Location
-                        tables.RemoveAt(i + 1);
+                        Obstacles.RemoveAt(i + 1);
                         if (table_cur.Count + table_next.Count == 6/*If this One and the next one's sum is current count*/
                                                                    // If the Next Element is present within range
-                            && i + 1 < tables.Count)
+                            && i + 1 < Obstacles.Count)
                         {
-                            table_next = tables[i + 1];
+                            table_next = Obstacles[i + 1];
                             table_cur.InsertRange(table_cur.Count, table_next);
-                            tables.RemoveAt(i + 1);
+                            Obstacles.RemoveAt(i + 1);
                         }
                         continue;
                     }
@@ -189,7 +218,7 @@ namespace PdfToCSVAD210
                         // As this is Confirmed
                         // It implies we are supposed to add the two Ranges to each other
                         table_cur.InsertRange(3, table_next);
-                        tables.RemoveAt(i + 1);
+                        Obstacles.RemoveAt(i + 1);
                         continue;
                     }
                 }
@@ -209,7 +238,7 @@ namespace PdfToCSVAD210
                         continue;
                     }
                     table_cur[5] += " " + table_next[0];
-                    tables.RemoveAt(i + 1);
+                    Obstacles.RemoveAt(i + 1);
                 }
                 else
                 {
@@ -218,7 +247,7 @@ namespace PdfToCSVAD210
                 }
             }
             // Trim All Elements
-            foreach (List<string> items in tables)
+            foreach (List<string> items in Obstacles)
             {
                 for (int i = 0; i < items.Count; ++i)
                 {
@@ -230,7 +259,7 @@ namespace PdfToCSVAD210
             // The Headings also contain 6 Elements
             // Remove this by Passing
             // RWY/Area affected which is the value of the first heading
-            tables.RemoveAll(x => x.Count != 6 //6 Columns present
+            Obstacles.RemoveAll(x => x.Count != 6 //6 Columns present
             // Header Column Remove
             || x[0].StartsWith("RWY/Area affected")
             // Check if Position 3 Is Occupied by Elevation
@@ -241,7 +270,7 @@ namespace PdfToCSVAD210
             || !CoOrdinate.IsLongitudeLatitudeInCSVForm(x[2])
             );
 
-            foreach (List<string> items in tables)
+            foreach (List<string> items in Obstacles)
             {
                 for (int i = 0; i < items.Count; ++i)
                 {
@@ -259,16 +288,12 @@ namespace PdfToCSVAD210
                     .Replace("- ", "-").Replace(" -", "-");
                 }
             }
-
-            // This table contains the final values
-            return tables;
         }
-
-        // Also read https://docs.microsoft.com/en-us/dotnet/api/system.datetime.tryparseexact?redirectedfrom=MSDN&view=netframework-4.7.2
-        private static bool IsUselessNumericDate(string val)
+        public static bool IsDateOfPDFPublishing(string val)
         {
             DateTime dt = new DateTime();
             return DateTime.TryParseExact(val.Trim(), "dd MMM yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dt);
         }
+
     }
 }

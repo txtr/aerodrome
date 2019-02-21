@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PdfToCSVAD210
+namespace PdfToCSVParser
 {
     internal class CoOrdinate
     {
@@ -121,7 +121,7 @@ namespace PdfToCSVAD210
         // Code to Verify if the data is a Given Runway/Area Which is Affected
         public static bool IsRunwayAreaAffected(string val)
         {
-            return val.TrimStart().StartsWith("In circling area and") || val.Contains("TKOF") || val.Contains("APCH");
+            return val.Contains("In circling area and") || val.Contains("TKOF") || val.Contains("APCH");
         }
 
         // We Know that Elevation always ends with FT

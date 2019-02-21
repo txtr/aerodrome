@@ -6,7 +6,7 @@ using System.Text;
 
 // Credits to https://stackoverflow.com/a/42259989
 // StackOverflow user https://stackoverflow.com/users/1070002/shaun
-namespace PdfToCSVAD210
+namespace PdfToCSVParser
 {
     class TableExtractionStrategy : LocationTextExtractionStrategy
     {

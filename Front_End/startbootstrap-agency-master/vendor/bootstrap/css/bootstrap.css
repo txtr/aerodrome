@@ -551,6 +551,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  background-color: gray;
 }
 
 @media (min-width: 576px) {
@@ -583,6 +584,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  background-color: gray;
 }
 
 .row {

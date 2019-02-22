@@ -1,9 +1,38 @@
+#myInput {
+  width: 50%; /* Half-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+  margin-left: 25%;
+  left: 50%;
+}
+
 #myUL {
   /* Remove default list styling */
+  width: 50%;
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin: auto;
   vertical-align: 100%;
+}
+
+#myUL li a {
+  border: transparent; /* Add a border to all links */
+  width: 50%;
+  margin-top: -1px; /* Prevent double borders */
+  margin-left: 25%;
+  background-color:white; /* Grey background color #f6f6f6*/
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color:#fec810; /* Add a white text color */
+  display: block; /* Make it into a block element to fill the whole list */
+
+}
+
+#myUL li a:hover:not(.header) {
+  /*background-color: #2f68e4	;*/ /* Add a hover effect to all links, except for headers */
 }
 
 body {
@@ -15,16 +44,16 @@ p {
   line-height: 1.75;
 }
 
-a {
-  color: #fed136;
-}
+/*a {
+  color:cyan;
+}*/
 
-a:hover {
-  color: #fec503;
-}
+/*a:hover {
+  color: #fe036c;
+}*/
 
 .text-primary {
-  color: #fed136 !important;
+  color:#fec810 !important;
 }
 
 h1,

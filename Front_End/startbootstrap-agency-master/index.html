@@ -9,7 +9,10 @@
   <meta name="author" content="">
 
   <title>Aerodrome</title>
-
+  
+  <!-- Ajax for auto generating list from csv -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -444,9 +447,19 @@
           }
         }
       }
-      </script>
-
-
+    </script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script type="text/javascript"charset="utf-8">
+       d3.dsv(';','data.csv')
+         .then(function(data) {
+            var table_data='';
+            for(var count = 0; count<data.length; count++)
+            {
+               table_data=$('<li><a href = "#">'+data[count].Name+'</a></li>');
+               $("#myUL").append(table_data);
+            }
+          })
+   </script>
 </body>
 
 </html>

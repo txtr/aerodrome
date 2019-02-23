@@ -8,12 +8,11 @@
   left: 50%;
 }
 
-#myUL {
-  /* Remove default list styling */
-  width: 50%;
-  list-style-type: none;
+#accordion {
+  /* Remove default accordion styling */
+  width: 132%; /*do not touch this for now*/
   padding: 0;
-  margin: auto;
+  margin-left: 66%; /*do not touch this for now*/
   vertical-align: 100%;
 }
 
@@ -32,7 +31,7 @@
 }
 
 #myUL li a:hover:not(.header) {
-  /*background-color: #2f68e4	;*/ /* Add a hover effect to all links, except for headers */
+  background-color: #2f68e4	; /* Add a hover effect to all links, except for headers */
 }
 
 body {

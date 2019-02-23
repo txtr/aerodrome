@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+   <name>VAKS</name>
+   <Placemark>
+       <name>TREE</name>
+       <description>23/APCH05/TKOF</description>
+       <Point>
+           <coordinates>70.2758888888889,21.3225833333333,194</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>23/APCH05/TKOF</description>
+       <Point>
+           <coordinates>70.2782222222222,21.3223611111111,190</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>23/APCH05/TKOF</description>
+       <Point>
+           <coordinates>70.2776666666667,21.3229444444444,177</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>23/APCH05/TKOF</description>
+       <Point>
+           <coordinates>70.2761944444444,21.3226944444444,179</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>23/APCH05/TKOF</description>
+       <Point>
+           <coordinates>70.2768888888889,21.3210555555556,182</coordinates>
+       </Point>
+   </Placemark>
+</Document>
+</kml>

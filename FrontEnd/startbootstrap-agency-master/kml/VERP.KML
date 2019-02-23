@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+   <name>VERP</name>
+   <Placemark>
+       <name>WALL</name>
+       <description>24/TKOF06/APCH</description>
+       <Point>
+           <coordinates>81.7296111111111,21.17575,1018</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>24/TKOF06/APCH</description>
+       <Point>
+           <coordinates>81.7273055555556,21.1751666666667,1054</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>24/TKOF06/APCH</description>
+       <Point>
+           <coordinates>81.7301944444445,21.1749722222222,1025</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>24/TKOF06/APCH</description>
+       <Point>
+           <coordinates>81.7291388888889,21.1766666666667,1025</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WALL</name>
+       <description>24/TKOF06/APCH</description>
+       <Point>
+           <coordinates>81.7290555555556,21.1766388888889,1021</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>24/TKOF06/APCH</description>
+       <Point>
+           <coordinates>81.7306666666667,21.17425,1023</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>24/TKOF06/APCH</description>
+       <Point>
+           <coordinates>81.7296111111111,21.1753055555556,1023</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>ANTENNA</name>
+       <description>24/TKOF06/APCH</description>
+       <Point>
+           <coordinates>81.7299166666667,21.1754444444444,1016</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>24/APCH06/TKOF</description>
+       <Point>
+           <coordinates>81.7515,21.1860555555556,1040</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.7260555555556,21.1704166666667,1082</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.7484444444444,21.18475,1052</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>ANTENNA</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.74775,21.1843611111111,1081</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>BUILDING</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.7476111111111,21.1842777777778,1049</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>ANTENNA</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.7476666666667,21.1843333333333,1053</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>ANTENNA</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.7396944444444,21.1834722222222,1097</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>ANTENNA</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.7394722222222,21.1830277777778,1083</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.7399444444444,21.1836111111111,1107</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.7403611111111,21.1837777777778,1108</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.7406666666667,21.18,1054</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.7429166666667,21.1808055555556,1072</coordinates>
+       </Point>
+   </Placemark>
+</Document>
+</kml>

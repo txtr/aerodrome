@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+   <name>VOBL</name>
+   <Placemark>
+       <name>OTHER</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>77.7053333333333,13.1988611111111,3165</coordinates>
+       </Point>
+   </Placemark>
+</Document>
+</kml>

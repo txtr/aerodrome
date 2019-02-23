@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<NetworkLink>
+	<open>1</open>
+	<Link>
+		<href>https://raw.githubusercontent.com/txtr/aerodrome/Arpita/bom.kml?token=Aml2rV-FkicO1z8EYAR4FfrPuZslJTxgks5cdkt7wA%3D%3D</href>
+	<viewRefreshMode>onRequest</viewRefreshMode>
+	</Link>
+</NetworkLink>
+<NetworkLinkControl>
+   <message>This is a pop-up message. You will only see this once</message>
+</NetworkLinkControl>
+</kml>

@@ -11,18 +11,12 @@
   <title>Aerodrome</title>
   <!-- Maps API -->
 
-  <meta name="viewport" content="initial-scale=1.0, 
-      width=device-width" />
-    <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" 
-      type="text/javascript" charset="utf-8"></script>
-    <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" 
-      type="text/javascript" charset="utf-8"></script>
-    <script src="http://js.api.here.com/v3/3.0/mapsjs-ui.js" 
-      type="text/javascript" charset="utf-8"></script>
-    <link rel="stylesheet" type="text/css" 
-      href="http://js.api.here.com/v3/3.0/mapsjs-ui.css" />
-
-  <!-- Bootstrap core CSS -->
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-data.js"></script>
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+    <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
@@ -109,54 +103,49 @@
           <div id="map"></div>
             <div style="width: 1250px; height: 634px" id="mapContainer"></div>
             <script type="text/javascript" charset="utf-8">
-                 var platform = new H.service.Platform({
-                     'app_id': 'iR8ykbifoBUlJW6RdfLr',
-                     'app_code': 's76E4-KlQ79tDPa4mH1Zwg'
+                 const platform = new H.service.Platform({
+                     app_id: 'iR8ykbifoBUlJW6RdfLr',
+                     app_code: 's76E4-KlQ79tDPa4mH1Zwg'
                    });
 
-           // Obtain the default map types from the platform object
-                  var defaultLayers = platform.createDefaultLayers();
-
-          // Instantiate (and display) a map object:
-                 
-          // Get the default map types from the Platform object:
-                   var defaultLayers = platform.createDefaultLayers();
+                   const defaultLayers = platform.createDefaultLayers();
+                   console.log(defaultLayers)
 
           // Instantiate the map:
-                  var map = new H.Map(
+                  const map = new H.Map(
                   document.getElementById('mapContainer'),
                   defaultLayers.normal.map,
                   {
-                     zoom: 15,
-                      center: { lng: 72.8656, lat: 19.0896 }
+                     zoom: 14,
+                      center: { lng: 70.7922222222222, lat:22.2988888888889 }
                   });
-                 
-        <!-- KML READING -->
+                  var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));                   
           ///Create reader object initializing it with a document:
-                  //var reader = new H.data.kml.Reader('/home/vedant/Desktop/KML_Samples.kml'),
-  
+                  let reader = new H.data.kml.Reader('https://raw.githubusercontent.com/Vedantsahai18/Hexwife/personal/vahh.kml');
+
           ///Parse the document:
-                  //reader.parse();
+                  reader.parse();
 
           ///Get KML layer from the reader object and add it to the map:
-                  //layer = reader.getLayer();
-                 // map.addLayer(layer);
+                console.log(reader.getLayer());
+
+                 var layer = reader.getLayer();
+                 map.addLayer(layer);
 
           /// KML objects receive regular map events, so add an event listener to the 
           /// KML layer:
                   
-                  //layer.getProvider().addEventListener('tap', function(ev) {
-          /// Log map object data. They contain name, description (if present in 
-          ///KML) and the KML node itself.
-                      //console.log(ev.target.getData());
-                 // }); 
-                  
+                  layer.getProvider().addEventListener('tap', function(ev) {
+          // Log map object data. They contain name, description (if present in 
+          //KML) and the KML node itself.
+                      console.log(ev.target.getData());
+                 }); 
                   var ui = H.ui.UI.createDefault(map, defaultLayers);
                   var mapSettings = ui.getControl('mapsettings');
                   var zoom = ui.getControl('zoom');
                   var scalebar = ui.getControl('scalebar');
-                  var panorama = ui.getControl('panorama');
-                  panorama.setAlignment('top-left');
+                  // var panorama = ui.getControl('panorama');
+                  // panorama.setAlignment('top-left');
                   mapSettings.setAlignment('top-left');
                   zoom.setAlignment('top-left');
                   scalebar.setAlignment('top-left');

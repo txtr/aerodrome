@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+   <name>VEBS</name>
+   <Placemark>
+       <name>TREE</name>
+       <description>32/APCH14/TKOF</description>
+       <Point>
+           <coordinates>85.8244444444444,20.2375,147</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>BUILDING</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>85.7819444444444,20.2569444444444,340</coordinates>
+       </Point>
+   </Placemark>
+</Document>
+</kml>

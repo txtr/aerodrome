@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+   <name>VAOZ</name>
+   <Placemark>
+       <name>NATURAL HIGHPOINT</name>
+       <description>27/TKOF09/APCH</description>
+       <Point>
+           <coordinates>73.7679444444444,20.1129722222222,3232</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>NATURAL HIGHPOINT</name>
+       <description>27/TKOF09/APCH</description>
+       <Point>
+           <coordinates>73.7600833333333,20.1236111111111,3150</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>ANTENNA</name>
+       <description>27/TKOF09/APCH</description>
+       <Point>
+           <coordinates>73.7383611111111,20.117,3642</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>NATURAL HIGHPOINT</name>
+       <description>27/TKOF09/APCH</description>
+       <Point>
+           <coordinates>73.73825,20.1179722222222,2822</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>NATURAL HIGHPOINT</name>
+       <description>27/TKOF09/APCH</description>
+       <Point>
+           <coordinates>73.7695277777778,20.1100833333333,2900</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>NATURAL HIGHPOINT</name>
+       <description>27/TKOF09/APCH</description>
+       <Point>
+           <coordinates>73.7716666666667,20.1176388888889,2428</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>NATURAL HIGHPOINT</name>
+       <description>27/TKOF09/APCH</description>
+       <Point>
+           <coordinates>73.7600833333333,20.1236111111111,3150</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TOWER</name>
+       <description>27/TKOF09/APCH</description>
+       <Point>
+           <coordinates>73.8136111111111,20.1026388888889,2205</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TOWER</name>
+       <description>27/TKOF09/APCH</description>
+       <Point>
+           <coordinates>73.8156111111111,20.1032222222222,2205</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TOWER</name>
+       <description>27/TKOF09/APCH</description>
+       <Point>
+           <coordinates>73.79025,20.1204444444444,2389</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>27/TKOF09/APCH</description>
+       <Point>
+           <coordinates>73.9278888888889,20.1216388888889,2011</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>ANTENNA</name>
+       <description>27/TKOF09/APCH</description>
+       <Point>
+           <coordinates>73.8986111111111,20.1188055555556,1994</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>BUILDING</name>
+       <description>27/APCH09/TKOF</description>
+       <Point>
+           <coordinates>73.9638055555556,20.1253888888889,1962</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>BUILDING</name>
+       <description>27/APCH09/TKOF</description>
+       <Point>
+           <coordinates>73.96425,20.1272777777778,1939</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TOWER</name>
+       <description>27/APCH09/TKOF</description>
+       <Point>
+           <coordinates>74.0265833333333,20.125,2021</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TOWER</name>
+       <description>27/APCH09/TKOF</description>
+       <Point>
+           <coordinates>74.0581111111111,20.1501111111111,2011</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TOWER</name>
+       <description>27/APCH09/TKOF</description>
+       <Point>
+           <coordinates>74.0298055555556,20.1431944444444,2100</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TOWER</name>
+       <description>27/APCH09/TKOF</description>
+       <Point>
+           <coordinates>74.0226944444444,20.12775,1988</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>27/APCH09/TKOF</description>
+       <Point>
+           <coordinates>73.89875,20.1188055555556,1955</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>ANTENNA</name>
+       <description>27/APCH09/TKOF</description>
+       <Point>
+           <coordinates>73.9283611111111,20.1201944444444,1938</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>BUILDING</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.9136111111111,20.1168055555556,2021</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>NAVAID</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.9098888888889,20.1075277777778,2083</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TANK</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.9221111111111,20.1142222222222,2051</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.9091388888889,20.1075833333333,2119</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>BUILDING</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.9147777777778,20.1185555555556,1992</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>ANTENNA</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.9051944444444,20.1224444444444,2018</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>ANTENNA</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.9245277777778,20.122,1965</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>BUILDING</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.9066388888889,20.1150555555556,2005</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>BUILDING</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.9133611111111,20.1166944444444,1975</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.9000555555556,20.1144166666667,2034</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.8993333333333,20.1143333333333,2034</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.8985833333333,20.1142777777778,2034</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.8978055555556,20.1138055555556,2034</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TOWER</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.9444444444444,20.0964444444444,2037</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TOWER</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.9461666666667,20.1043055555556,2037</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TOWER</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.9250277777778,20.0956666666667,1975</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TOWER</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.9231666666667,20.0901111111111,2037</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TOWER</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.9198611111111,20.0867777777778,2103</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TOWER</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.9259722222222,20.1033333333333,2037</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TOWER</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>73.8864166666667,20.1044166666667,2037</coordinates>
+       </Point>
+   </Placemark>
+</Document>
+</kml>

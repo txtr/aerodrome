@@ -10,28 +10,29 @@
 
 #accordion {
   /* Remove default accordion styling */
-  width: 132%; /*do not touch this for now*/
+  width: 132%;
   padding: 0;
-  margin-left: 66%; /*do not touch this for now*/
+  margin-left: 66%; /*do not touch this*/
   vertical-align: 100%;
 }
 
-#myUL li a {
-  border: transparent; /* Add a border to all links */
-  width: 50%;
+#myUL li a{
+  border: transparent;/*1px solid #fec810; /* Add a border to all links */
+  width: 100%;
   margin-top: -1px; /* Prevent double borders */
-  margin-left: 25%;
-  background-color:white; /* Grey background color #f6f6f6*/
+  margin-left: auto;
+  text-align: left;
+  background-color:transparent;/* #416d96; /* Grey background color #f6f6f6*/
   padding: 12px; /* Add some padding */
   text-decoration: none; /* Remove default text underline */
   font-size: 18px; /* Increase the font-size */
-  color:black; /* Add a white text color */
+  color:#fec810; /* Add a white text color */
   display: block; /* Make it into a block element to fill the whole list */
 
 }
 
 #myUL li a:hover:not(.header) {
-  background-color: #2f68e4	; /* Add a hover effect to all links, except for headers */
+  background-color: #6585c9	; /* Add a hover effect to all links, except for headers */
 }
 
 body {
@@ -116,6 +117,29 @@ section h3.section-subheading {
   box-shadow: 0 0 0 0.2rem rgba(254, 209, 55, 0.5) !important;
 }
 
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
 ::selection {
   background: #fed136;
   text-shadow: none;
@@ -146,7 +170,7 @@ img::-moz-selection {
 
 #mainNav .navbar-brand {
   color: #fed136;
-  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {

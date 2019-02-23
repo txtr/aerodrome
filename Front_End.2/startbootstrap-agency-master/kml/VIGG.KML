@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+   <name>VIGG</name>
+   <Placemark>
+       <name>TREE</name>
+       <description>33/APCH15/TKOF</description>
+       <Point>
+           <coordinates>76.2668055555555,32.1598055555556,2519</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>33/APCH15/TKOF</description>
+       <Point>
+           <coordinates>76.2672777777778,32.1594444444444,2505</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>33/APCH15/TKOF</description>
+       <Point>
+           <coordinates>76.26575,32.1597222222222,2510</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>33/APCH15/TKOF</description>
+       <Point>
+           <coordinates>76.2663888888889,32.1589444444444,2521</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>FENCE</name>
+       <description>33/TKOF15/APCH</description>
+       <Point>
+           <coordinates>76.2621944444444,32.1714444444444,2532</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>33/APCH15/TKOF</description>
+       <Point>
+           <coordinates>76.2666388888889,32.16025,2509</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>33/TKOF15/APCH</description>
+       <Point>
+           <coordinates>76.2610277777778,32.1709444444444,2532</coordinates>
+       </Point>
+   </Placemark>
+</Document>
+</kml>

@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+   <name>VELR</name>
+   <Placemark>
+       <name>TREE</name>
+       <description>22/APCH04/TKOF</description>
+       <Point>
+           <coordinates>94.1064444444444,27.3022222222222,400</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>FENCE</name>
+       <description>22/TKOF04/APCH</description>
+       <Point>
+           <coordinates>94.0874444444444,27.2873333333333,342</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>22/TKOF04/APCH</description>
+       <Point>
+           <coordinates>94.0870833333333,27.2866944444444,344</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TOWER</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>94.0910277777778,27.2871944444444,384</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>94.0901944444444,27.2865,378</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>BUILDING</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>94.0888333333333,27.2885833333333,341</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>BUILDING</name>
+       <description>22/TKOF04/APCH</description>
+       <Point>
+           <coordinates>94.0866944444444,27.2845277777778,364</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>22/TKOF04/APCH</description>
+       <Point>
+           <coordinates>94.0876666666667,27.2851111111111,354</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>22/APCH04/TKOF</description>
+       <Point>
+           <coordinates>94.0840555555556,27.285,385</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>22/TKOF04/APCH</description>
+       <Point>
+           <coordinates>94.0870277777778,27.2853055555556,358</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>22/TKOF04/APCH</description>
+       <Point>
+           <coordinates>94.0866111111111,27.2856388888889,345</coordinates>
+       </Point>
+   </Placemark>
+</Document>
+</kml>

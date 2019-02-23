@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+   <name>VORY</name>
+   <Placemark>
+       <name>TREE</name>
+       <description>23/TKOF05/APCH</description>
+       <Point>
+           <coordinates>81.8096111111111,17.1026944444444,150</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>23/TKOF05/APCH</description>
+       <Point>
+           <coordinates>81.8082777777778,17.1022777777778,154</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>23/TKOF05/APCH</description>
+       <Point>
+           <coordinates>81.8092777777778,17.1019444444444,156</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>23/TKOF05/APCH</description>
+       <Point>
+           <coordinates>81.8079444444444,17.10125,147</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>23/TKOF05/APCH</description>
+       <Point>
+           <coordinates>81.8068611111111,17.1014166666667,162</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>23/TKOF05/APCH</description>
+       <Point>
+           <coordinates>81.80575,17.1014166666667,156</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>23/APCH05/TKOF</description>
+       <Point>
+           <coordinates>81.8267777777778,17.1156944444444,194</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>23/APCH05/TKOF</description>
+       <Point>
+           <coordinates>81.8278611111111,17.1166111111111,196</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>23/APCH05/TKOF</description>
+       <Point>
+           <coordinates>81.8308888888889,17.1194722222222,211</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>23/APCH05/TKOF</description>
+       <Point>
+           <coordinates>81.8308055555556,17.1181944444444,212</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>23/APCH05/TKOF</description>
+       <Point>
+           <coordinates>81.8267222222222,17.11525,168</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WALL</name>
+       <description>23/APCH05/TKOF</description>
+       <Point>
+           <coordinates>81.8266666666667,17.1148333333333,164</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>BUILDING</name>
+       <description>23/APCH05/TKOF</description>
+       <Point>
+           <coordinates>81.82625,17.1153055555556,164</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WALL</name>
+       <description>23/APCH05/TKOF</description>
+       <Point>
+           <coordinates>81.8261111111111,17.1155555555556,164</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>23/APCH05/TKOF</description>
+       <Point>
+           <coordinates>81.8316666666667,17.1189444444444,215</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8246388888889,17.1163888888889,217</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8236944444444,17.1155833333333,193</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8186111111111,17.1088055555556,164</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8199444444444,17.1096666666667,191</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8198611111111,17.1098611111111,180</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8201388888889,17.1097222222222,181</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>BUILDING</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8202222222222,17.1098611111111,169</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8200277777778,17.1099444444444,198</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8201388888889,17.1098055555556,183</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8206666666667,17.1104444444444,178</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8188888888889,17.11125,162</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8171666666667,17.1072777777778,182</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.81325,17.1079444444444,184</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8135,17.0258888888889,657</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>NATURAL HIGHPOINT</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.7646944444444,17.1902777777778,663</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>NATURAL HIGHPOINT</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.89375,17.2240555555556,745</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>NATURAL HIGHPOINT</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8587777777778,17.2186388888889,699</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8100555555556,17.1055555555556,168</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8090833333333,17.1048333333333,161</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8244166666667,17.1125277777778,211</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8255555555556,17.1133333333333,207</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8272222222222,17.1149166666667,185</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>TREE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>81.8253611111111,17.1165277777778,193</coordinates>
+       </Point>
+   </Placemark>
+</Document>
+</kml>

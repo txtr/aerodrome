@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+   <name>VOTK</name>
+   <Placemark>
+       <name>OTHER</name>
+       <description>28/TKOF10/APCH</description>
+       <Point>
+           <coordinates>78.0191388888889,8.72530555555556,100</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>28/TKOF10/APCH</description>
+       <Point>
+           <coordinates>78.0185833333333,8.72355555555556,105</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>28/APCH10/TKOF</description>
+       <Point>
+           <coordinates>78.0353055555556,8.72036111111111,101</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>OTHER</name>
+       <description>28/APCH10/TKOF</description>
+       <Point>
+           <coordinates>78.0355277777778,8.72127777777778,98</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>78.0002222222222,8.73636111111111,252</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>78.0000277777778,8.73580555555555,259</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>POLE</name>
+       <description>In circling area and at AD</description>
+       <Point>
+           <coordinates>77.9965833333333,8.74033333333333,333</coordinates>
+       </Point>
+   </Placemark>
+</Document>
+</kml>

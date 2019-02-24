@@ -82,7 +82,7 @@ function renderButtons(className, buttons) {
     var containerNode = document.createElement("div");
     containerNode.setAttribute(
         "style",
-        "position:absolute;top:0;left:0;background-color:#fff; padding:10px;"
+        "position:absolute;top:0;left:0;background-color:transparent; padding:5px;"
     );
     containerNode.className = "btn-group";
 
@@ -91,7 +91,26 @@ function renderButtons(className, buttons) {
         input.value = label;
         input.type = "button";
         input.onclick = buttons[label];
-        // input.className = className;
+        input.classList.add("btn", className);
+        containerNode.appendChild(input);
+    });
+
+    map.getElement().appendChild(containerNode);
+}
+// Template function for our controls
+function renderText(className, buttons) {
+    var containerNode = document.createElement("div");
+    containerNode.setAttribute(
+        "style",
+        "position:absolute;top:0;left:0;background-color:black; padding:10px;"
+    );
+    containerNode.className = "btn-group";
+
+    Object.keys(buttons).forEach(function (label) {
+        var input = document.createElement("input");
+        input.value = label;
+        input.type = "button";
+        input.onclick = buttons[label];
         input.classList.add("btn", className);
         containerNode.appendChild(input);
     });
@@ -129,4 +148,4 @@ function renderAirport(icao) {
 
 // Get ICAO Parameter from Uri
 var ICAO = getUrlParameter("icao");
-renderAirport(ICAO);
+renderAirport(ICAO.toUpperCase());

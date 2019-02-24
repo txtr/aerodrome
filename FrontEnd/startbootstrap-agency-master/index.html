@@ -234,6 +234,7 @@
       }
     }
     </script>
+
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -244,9 +245,8 @@
        //var table_data='<div class="panel-group" id="accordion">';
        for(var count = 0; count<data.length; count++)
        {
-  
-         // $( function() {
-  $( "#accordion" ).accordion({active: false, collapsible: true});
+         // $( function()
+        $("#accordion").accordion({active: false, collapsible: true});
 
       var newH3 = document.createElement('h3');
       var newDiv = document.createElement('div');
@@ -258,16 +258,9 @@
       acc.appendChild(newH3);
       acc.appendChild(newDiv);
       $( "#accordion" ).accordion("refresh");
-        }//);
-        
-         //table_data=$('<li><a>'+data[count].Name+'</a></li>');
-         //$("#myUL").append(table_data);
-       //}
-       //$("#myUL").append($('</div>'));
+      }
       })
 
 </script>
-
 </body>
-
 </html>

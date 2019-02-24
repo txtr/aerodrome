@@ -55,7 +55,8 @@ function renderKML(map, ui, renderControls, icao, name) {
 const platform = new H.service.Platform({
     app_id: "iR8ykbifoBUlJW6RdfLr",
     app_code: "s76E4-KlQ79tDPa4mH1Zwg",
-    useCIT: true
+    useCIT: true,
+    useHTTPS: true
 });
 var defaultLayers = platform.createDefaultLayers();
 

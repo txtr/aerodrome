@@ -9,12 +9,11 @@ d3.dsv(';', 'data.csv')
             var newH3 = document.createElement('h3');
             var newDiv = document.createElement('div');
             var acc = document.getElementById('accordion');
-            var newp = document.createElement('p');
             var number = document.getElementsByTagName('h3').length;
 
             newH3.innerText = data[count].Name;
 
-            var kml2DPath = 'map.html?icao=' + data[count].Codes + '&name='+ data[count].Name;
+            var kml2DPath = 'map.html?icao=' + data[count].Codes + '&name=' + data[count].Name;
             var but2D = document.createElement('a');
             but2D.classList.add("btn", "btn-primary");
             but2D.setAttribute("role", "button");
@@ -26,12 +25,10 @@ d3.dsv(';', 'data.csv')
             but3D.setAttribute("role", "button");
             but3D.innerText = "Download in 3D";
 
-            newp.innerText = "   ";
 
             acc.appendChild(newH3);
             acc.appendChild(newDiv);
             newDiv.appendChild(but2D);
-            newDiv.appendChild(newp);
             newDiv.appendChild(but3D);
             $("#accordion").accordion("refresh");
         }

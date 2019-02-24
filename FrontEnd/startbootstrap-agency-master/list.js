@@ -19,6 +19,7 @@ d3.dsv(';', 'data.csv')
             but2D.setAttribute("role", "button");
             but2D.innerText = "Preview in 2D";
             but2D.setAttribute('href', kml2DPath);
+            but2D.setAttribute('target', "_blank");
 
             var but3D = document.createElement('a');
             but3D.classList.add("btn", "btn-primary");

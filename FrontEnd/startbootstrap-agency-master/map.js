@@ -9,7 +9,7 @@ function renderKML(map, ui, renderControls, icao) {
     // Request document parsing. Parsing is an asynchronous operation.
     reader.parse();
 
-    reader.addEventListener("statechange", function() {
+    reader.addEventListener("statechange", function () {
         // Wait till the KML document is fully loaded and parsed
         if (this.getState() === H.data.AbstractReader.State.READY) {
             const parsedObjects = reader.getParsedObjects();
@@ -21,8 +21,8 @@ function renderKML(map, ui, renderControls, icao) {
 
             // Render buttons for zooming into parts of the airport.
             // Function is not a part of API. Scroll to the bottom to see the source.
-            renderButtons({
-                "Download in 3D": function() {
+            renderButtons("btn-primary", {
+                "Download in 3D": function () {
                     window.location = kmlNetworkLinkBase + "/" + icao + ".KML";
                 }
             });
@@ -31,15 +31,13 @@ function renderKML(map, ui, renderControls, icao) {
             // Notice how we are using event delegation for it
             container.addEventListener(
                 "tap",
-                function(evt) {
+                function (evt) {
                     // Let's use out custom (non-api) function for displaying a baloon
                     var bubble = new H.ui.InfoBubble(evt.target.getPosition(), {
-                        // read custom data
+                        // read custom data 
                         content: evt.target.getData()['description']
                     });
-                    // evt.target.hide();
-                    console.log('Hello')
-                        // show info bubble
+                    // show info bubble
                     console.log(ui.addBubble(bubble));
                 },
                 false
@@ -67,11 +65,11 @@ var defaultLayers = platform.createDefaultLayers();
 var map = new H.Map(
     document.getElementById("mapContainer"),
     defaultLayers.satellite.map, {
-        zoom: 7
+        zoom: 1
     }
 );
 window.addEventListener('resize', function () {
-    map.getViewPort().resize(); 
+    map.getViewPort().resize();
 });
 
 // Step 3: make the map interactive
@@ -80,7 +78,7 @@ window.addEventListener('resize', function () {
 var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
 // Template function for our controls
-function renderButtons(buttons) {
+function renderButtons(className, buttons) {
     var containerNode = document.createElement("div");
     containerNode.setAttribute(
         "style",
@@ -88,12 +86,13 @@ function renderButtons(buttons) {
     );
     containerNode.className = "btn-group";
 
-    Object.keys(buttons).forEach(function(label, className) {
+    Object.keys(buttons).forEach(function (label) {
         var input = document.createElement("input");
         input.value = label;
         input.type = "button";
         input.onclick = buttons[label];
-        input.className = className;
+        // input.className = className;
+        input.classList.add("btn", className);
         containerNode.appendChild(input);
     });
 

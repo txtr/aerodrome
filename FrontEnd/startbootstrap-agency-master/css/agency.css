@@ -201,16 +201,13 @@ img::-moz-selection {
 
 @media (min-width: 992px) {
     #mainNav {
-        padding-top: 25px;
-        padding-bottom: 25px;
-        -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
-        transition: padding-top 0.3s, padding-bottom 0.3s;
+        padding-top: 0px;
+        padding-bottom: 0px;
         border: none;
-        background-color: transparent;
+        background-color: black;
     }
     #mainNav .navbar-brand {
         font-size: 1.75em;
-        -webkit-transition: all 0.3s;
         transition: all 0.3s;
     }
     #mainNav .navbar-nav .nav-item .nav-link {
@@ -254,14 +251,10 @@ header.masthead {
 }
 
 .innerpad1 {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     padding-left: 0px;
     padding-right: 0px;
-}
-
-.greybg {
-    background-color: rgba(255, 255, 255, 0.35);
 }
 
 header.masthead .intro-text {

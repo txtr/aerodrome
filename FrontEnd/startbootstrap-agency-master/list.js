@@ -24,8 +24,8 @@ d3.dsv(';', 'data.csv')
             var but3D = document.createElement('a');
             but3D.classList.add("btn", "btn-primary");
             but3D.setAttribute("role", "button");
-            var netLink = kmlLocation + '/' + data[count].Codes + '.KML';
-            but3D.setAttribute("href",  data[count].Codes + '.KML');
+            var netLink = kmlLocation + '/' + data[count].Codes + '.KML';   
+            but3D.setAttribute("href",  netLink);
             but3D.setAttribute('target','_blank');
             but3D.setAttribute('type', "application/vnd.google-earth.kml+xml");
             but3D.setAttribute("download", data[count].Codes + '.KML');

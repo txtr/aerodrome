@@ -70,6 +70,9 @@ var map = new H.Map(
         zoom: 7
     }
 );
+window.addEventListener('resize', function () {
+    map.getViewPort().resize(); 
+});
 
 // Step 3: make the map interactive
 // MapEvents enables the event system

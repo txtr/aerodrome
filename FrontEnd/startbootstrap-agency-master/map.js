@@ -1,4 +1,4 @@
-var kml2dBase = "kml";
+var kml2dBase = "https://raw.githubusercontent.com/ejson03/kmz/master/kml_2D";
 var kmlNetworkLinkBase = "kml";
 // Source https://github.com/heremaps/maps-api-for-javascript-examples/blob/master/map-with-interactive-kml-objects/js/app.js
 function renderKML(map, ui, renderControls, icao, name) {

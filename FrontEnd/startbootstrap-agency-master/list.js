@@ -1,6 +1,6 @@
-var kmlLocation = "kml";
+var kmlLocation = "https://raw.githubusercontent.com/ejson03/kmz/master/link";
 d3.dsv(';', 'data.csv')
-    .then(function(data) {
+    .then(function (data) {
         //var table_data='<div class="panel-group" id="accordion">';
         for (var count = 0; count < data.length; count++) {
             // $( function()
@@ -24,6 +24,11 @@ d3.dsv(';', 'data.csv')
             var but3D = document.createElement('a');
             but3D.classList.add("btn", "btn-primary");
             but3D.setAttribute("role", "button");
+            var netLink = kmlLocation + '/' + data[count].Codes + '.KML';
+            but3D.setAttribute("href",  data[count].Codes + '.KML');
+            but3D.setAttribute('target','_blank');
+            but3D.setAttribute('type', "application/vnd.google-earth.kml+xml");
+            but3D.setAttribute("download", data[count].Codes + '.KML');
             but3D.innerText = "Download in 3D";
 
 

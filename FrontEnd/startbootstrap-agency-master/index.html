@@ -9,6 +9,10 @@
   <meta name="author" content="">
 
   <title>Aerodrome</title>
+
+   <!-- Ajax for auto generating list from csv -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
   <!-- Maps API -->
 
   <meta name="viewport" content="initial-scale=1.0, 
@@ -102,12 +106,9 @@
         </div>
     </div>
               <div class="innerpad1">
-        <ul id="myUL">
-        <li><a href="#"type="application/vnd.google-earth.kml+xml"><centre>VAAH - AHMEDABAD / INTL</centre></a></li>
-<li><a href="https://drive.google.com/uc?export=download&id=1IOFnmMRBkUrNnDIMc_1JDzCAKvv2_XWe"type="application/vnd.google-earth.kml+xml"><centre>VABB - CHHATRAPATI SHIVAJI INT'L AIRPORT / INTL</centre></a></li>
-<li><a href="https://drive.google.com/uc?export=download&id=1meJCCszKHeGeHCPzxK_y-cpxuExfNYOY"type="application/vnd.google-earth.kml+xml"><centre>VABO - VADODARA / DOMESTIC</centre></a></li>
-<li><a href="https://drive.google.com/uc?export=download&id=12m9mZEDCEBsBT23_Aww-7p9oKYpkTz4_"type="application/vnd.google-earth.kml+xml"><centre>VAKE - KANDLA / DOMESTIC</centre></a></li>      
-      </ul>
+                <div data-role="content" id="Div1">
+                  <div id="accordion" data-role="collapsible-set">
+               </div>
       </div>
           </div>
           <div class="col-lg-1">&nbsp;</div>
@@ -213,29 +214,60 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/agency.min.js"></script>
-
   <script>
-      function myFunction() {
-        // Declare variables
-        var input, filter, ul, li, a, i, txtValue;
-        input = document.getElementById('myInput');
-        filter = input.value.toUpperCase();
-        ul = document.getElementById("myUL");
-        li = ul.getElementsByTagName('li');
-      
-        // Loop through all list items, and hide those who don't match the search query
-        for (i = 0; i < li.length; i++) {
-          a = li[i].getElementsByTagName("a")[0];
-          txtValue = a.textContent || a.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-          } else {
-            li[i].style.display = "none";
-          }
+    function myFunction() {
+      // Declare variables
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("accordion");
+      li = ul.getElementsByTagName('h3');
+    
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("h3")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
         }
       }
-      </script>
+    }
+    </script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
+<script type="text/javascript"charset="utf-8">
+   d3.dsv(';','data.csv')
+     .then(function(data) {
+       //var table_data='<div class="panel-group" id="accordion">';
+       for(var count = 0; count<data.length; count++)
+       {
+  
+         // $( function() {
+  $( "#accordion" ).accordion({active: false, collapsible: true});
+
+      var newH3 = document.createElement('h3');
+      var newDiv = document.createElement('div');
+      var acc = document.getElementById('accordion');
+      var number = document.getElementsByTagName('h3').length;
+
+      newH3.innerText = data[count].Name;
+      newDiv.innerHTML = '<a href="#link" class="btn btn-info" role="button">Link Button</a> <a href="#link" class="btn btn-info" role="button">Link Button</a>';
+      acc.appendChild(newH3);
+      acc.appendChild(newDiv);
+      $( "#accordion" ).accordion("refresh");
+        }//);
+        
+         //table_data=$('<li><a>'+data[count].Name+'</a></li>');
+         //$("#myUL").append(table_data);
+       //}
+       //$("#myUL").append($('</div>'));
+      })
+
+</script>
 
 </body>
 

@@ -14,7 +14,7 @@ d3.dsv(';', 'data.csv')
 
             newH3.innerText = data[count].Name;
 
-            var kml2DPath = 'map.html?icao=' + data[count].Codes;
+            var kml2DPath = 'map.html?icao=' + data[count].Codes + '&name='+ data[count].Name;
             var but2D = document.createElement('a');
             but2D.classList.add("btn", "btn-primary");
             but2D.setAttribute("role", "button");

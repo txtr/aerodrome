@@ -1,7 +1,7 @@
 var kml2dBase = "kml";
 var kmlNetworkLinkBase = "kml";
 // Source https://github.com/heremaps/maps-api-for-javascript-examples/blob/master/map-with-interactive-kml-objects/js/app.js
-function renderKML(map, ui, renderControls, icao) {
+function renderKML(map, ui, renderControls, icao, name) {
     // Create a reader object, that will load data from a KML file
     var url = kml2dBase + "/" + icao + ".KML";
     var reader = new H.data.kml.Reader(url);
@@ -21,11 +21,10 @@ function renderKML(map, ui, renderControls, icao) {
 
             // Render buttons for zooming into parts of the airport.
             // Function is not a part of API. Scroll to the bottom to see the source.
-            renderButtons("btn-primary", {
-                "Download in 3D": function () {
-                    window.location = kmlNetworkLinkBase + "/" + icao + ".KML";
-                }
+            renderButtons("btn-primary", "Download in 3D", function () {
+                window.location = kmlNetworkLinkBase + "/" + icao + ".KML";
             });
+            renderText(name);
 
             // Let's make kml ballon visible by tap on its owner
             // Notice how we are using event delegation for it
@@ -78,7 +77,7 @@ window.addEventListener('resize', function () {
 var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
 // Template function for our controls
-function renderButtons(className, buttons) {
+function renderButtons(className, label, onClick) {
     var containerNode = document.createElement("div");
     containerNode.setAttribute(
         "style",
@@ -86,34 +85,33 @@ function renderButtons(className, buttons) {
     );
     containerNode.className = "btn-group";
 
-    Object.keys(buttons).forEach(function (label) {
-        var input = document.createElement("input");
-        input.value = label;
-        input.type = "button";
-        input.onclick = buttons[label];
-        input.classList.add("btn", className);
-        containerNode.appendChild(input);
-    });
+    var input = document.createElement("input");
+    input.value = label;
+    input.type = "button";
+    input.onclick = onClick;
+    input.classList.add("btn", className);
+    containerNode.appendChild(input);
 
     map.getElement().appendChild(containerNode);
 }
 // Template function for our controls
-function renderText(className, buttons) {
+function renderText(label) {
     var containerNode = document.createElement("div");
     containerNode.setAttribute(
         "style",
-        "position:absolute;top:0;left:0;background-color:black; padding:10px;"
+        "position:absolute;top:0;left:40%;background-color:white; padding:10px;"
     );
-    containerNode.className = "btn-group";
+    containerNode.innerText = label;
+    // containerNode.className = "btn-group";
 
-    Object.keys(buttons).forEach(function (label) {
-        var input = document.createElement("input");
-        input.value = label;
-        input.type = "button";
-        input.onclick = buttons[label];
-        input.classList.add("btn", className);
-        containerNode.appendChild(input);
-    });
+    // Object.keys(buttons).forEach(function (label) {
+    //     var input = document.createElement("input");
+    //     input.value = label;
+    //     input.type = "button";
+    //     input.onclick = buttons[label];
+    //     input.classList.add("btn", className);
+    //     containerNode.appendChild(input);
+    // });
 
     map.getElement().appendChild(containerNode);
 }
@@ -139,13 +137,14 @@ var getUrlParameter = function getUrlParameter(sParam) {
 var ui = H.ui.UI.createDefault(map, defaultLayers);
 
 // Step 5: main logic goes here
-function renderAirport(icao) {
+function renderAirport(icao,Name) {
     // ICAO Codes are of 4 Characters
-    if (icao.length == 4) renderKML(map, ui, renderButtons, icao);
+    if (icao.length == 4) renderKML(map, ui, renderButtons, icao, Name);
     // Go Back
     else window.history.go(-1);
 }
 
 // Get ICAO Parameter from Uri
 var ICAO = getUrlParameter("icao");
-renderAirport(ICAO.toUpperCase());
+var Name = getUrlParameter("name");
+renderAirport(ICAO.toUpperCase(), Name);

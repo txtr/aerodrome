@@ -6,6 +6,7 @@
     <StartupObject></StartupObject>
     <AssemblyName>PdfToCSVParser</AssemblyName>
     <RootNamespace>PdfToCSVParser</RootNamespace>
+    <NoWarn>NU1701</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

@@ -6,8 +6,8 @@ from os.path import join, isfile
 import csv
 
 root = sys.argv[1]
-csv_path = root + '/csv/'
-kml2D_path = root + '/kml_2D/'
+csv_path = root + '/CSV/'
+kml2D_path = root + '/KML2D/'
 
 def createKML(csvReader, fileName):
     # This constructs the KML document from the CSV file.

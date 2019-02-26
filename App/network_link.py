@@ -7,7 +7,7 @@ import pathlib
 root = sys.argv[1]
 
 kmz_path = root + '/KMZ/'
-link_path =  root + '/LINK/'
+link_path =  root + '/NetworkLink/'
 github_link = 'https://raw.githubusercontent.com/ejson03/kmz/master/KMZ/'
 
 # Create directory if not exists

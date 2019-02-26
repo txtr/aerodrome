@@ -121,7 +121,7 @@ namespace PdfToCSVParser
             || x[0] == "123456"/*Table Heading Index*/
             // Rest All Are always present
             // At the Top of the page
-            || x[0].TrimStart().StartsWith("AD 2 VA")
+            || x[0].TrimStart().StartsWith("AD 2 V")
             || x[0] == ("AIRAC effective date")
             || x[0].TrimStart().StartsWith("Airports Authority of India")
             || x[0].TrimStart().StartsWith("AMDT ")

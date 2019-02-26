@@ -49,21 +49,29 @@ def PdfToCSVParser():
     return RunCSharpProjectWithDotNetRun(project_path)
 # Convert CSV To KML2D
 def CSVToKML2D():
-    script_path: str = apps + '/' + 'csv_kml_2d.py';
-    return RunPythonScript(script_path);
+    script_path: str = apps + '/' + 'csv_kml_2d.py'
+    return RunPythonScript(script_path)
 # Convert CSV To KMZ
 def CSVToKMZ():
-    script_path: str = apps + '/' + 'csv_kmz.py';
-    return RunPythonScript(script_path);
+    script_path: str = apps + '/' + 'csv_kmz.py'
+    return RunPythonScript(script_path)
 
 def GenerateNetworkLink():
-    script_path: str = apps + '/' + 'network_link.py';
-    return RunPythonScript(script_path);
+    script_path: str = apps + '/' + 'network_link.py'
+    return RunPythonScript(script_path)
+
+def ICAOCSVToDb():
+    script_path: str = apps + '/' + 'icaocsv2db.py'
+    return RunPythonScript(script_path)
+def ObstacleCSVToDb():
+    script_path: str = apps + '/' + 'obstaclecsvtodb.py'
+    return RunPythonScript(script_path)
+
 
 # Push to Git
 def PushToGit():
-    script_path: str = apps + '/' + 'gitscript.py';
-    return RunPythonScript(script_path);
+    script_path: str = apps + '/' + 'gitscript.py'
+    return RunPythonScript(script_path)
 
 # Run the Given Functions
 ICAOCodeParser()
@@ -72,4 +80,6 @@ PdfToCSVParser()
 CSVToKML2D()
 CSVToKMZ()
 GenerateNetworkLink()
+ICAOCSVToDb()
+ObstacleCSVToDb()
 PushToGit()

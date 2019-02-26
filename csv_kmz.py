@@ -12,7 +12,7 @@ from distutils.dir_util import copy_tree
 root = sys.argv[1] 
 csvFolder = root + '/CSV/'
 kmzTmpFolder = root + '/KMZTemp/'
-daeFolder = root + '/dae'
+daeFolder = root + '/dae/'
 kmzFinalFolder = root + '/KMZ/'
 
 def createKML(csvFile, fileName, icaoAirport):
@@ -154,6 +154,7 @@ def main():
     # Remove Previous Generation of Code in TMP Folder
     shutil.rmtree(kmzTmpFolder,True);
     for csv_file in files:
+        print('Started Parsing ', csv_file)
         icaoAirport = pathlib.Path(csv_file).stem # Extract VAAH from VAAH.csv
         csvFile = csvFolder + icaoAirport + '.CSV'
         # Create Path to KMZ File
@@ -169,6 +170,8 @@ def main():
         zip_name = kmzFinalFolder + icaoAirport + '.zip'
         kmz_name = kmzFinalFolder + icaoAirport + '.KMZ'
         shutil.move(zip_name, kmz_name)
+        print('Finished ', kmz_name)
+
     
     # Remove TMP Folder When Unrequired
     shutil.rmtree(kmzTmpFolder,True);

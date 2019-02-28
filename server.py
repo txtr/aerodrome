@@ -1,9 +1,12 @@
+import shutil
 import flask
 from flask_sqlalchemy import SQLAlchemy
 import pathlib
+import distutils.dir_util
 import subprocess
 import json
 import threading
+import pathlib
 import sys
 import base64
 import time
@@ -183,6 +186,175 @@ def GenerateKML2DFromObstacles(fileName: str, obstacles: list):
     else:
         createKML2D(fileName, obstacles)
         return flask.jsonify({'code':fileName})
+
+def GenerateKMZFromObstacles(fileName: str, obstacles: list):
+    if not obstacles:
+        return flask.jsonify({'code':''})
+    else:
+        createKMZ(fileName, obstacles)
+        return flask.jsonify({'code':fileName})
+
+def createKMZ(fileName: str, obstacles: list):
+    daeFolder = 'Data/dae/'
+    kmzFinalFolder = 'Data/KMZ/'
+    kmzTmpFolder = 'Data/KMZTemp/'
+    kmzAirportPath = kmzTmpFolder + fileName
+    kmzTmpKML = kmzAirportPath + '/' + fileName + '.KML'
+
+    kmzEndRes = kmzFinalFolder + fileName + '.KMZ'
+
+    if pathlib.Path(kmzEndRes).is_file():
+        return None
+
+    # This constructs the KML document from the CSV file.
+    kmlDoc = xml.dom.minidom.Document()
+#below code creates a basic structure of how the docs will look 
+    kmlElement = kmlDoc.createElementNS('http://www.opengis.net/kml/2.2', 'kml')
+    kmlElement.setAttribute('xmlns','http://www.opengis.net/kml/2.2')
+    kmlElement = kmlDoc.appendChild(kmlElement)
+    documentElement = kmlDoc.createElement('Document')
+    documentElement = kmlElement.appendChild(documentElement)
+
+    # Remove TMP Folder When Unrequired
+    shutil.rmtree(kmzTmpFolder,True);
+
+    pathlib.Path(kmzAirportPath).mkdir(parents=True, exist_ok=True) 
+
+    # Store List of DAE Models to Add
+    # List is Unique to Reduce Duplication of Effort
+    daeAdd = set()
+    #create the placematk sectiin and append it to the document tag
+    for obstacle in obstacles:
+        placemarkElement = createPlacemarkKMZ(kmlDoc, [obstacle.affected, obstacle.obs_type, obstacle.latitude, obstacle.longitude, obstacle.elevation, obstacle.marking, obstacle.remark], fileName)
+        documentElement.appendChild(placemarkElement)
+        daeAdd.add(obstacle.obs_type.upper()) # Add the Type of Obstacle. We use this to detect DAE
+    
+    kmlFile = open(kmzTmpKML, 'wb') #writes the .kml file in byte mode
+    kmlFile.write(kmlDoc.toprettyxml('  ', newl = '\n', encoding = 'utf-8'))
+    kmlFile.close()
+    # Folder to Store DAE in KMZTemp
+    daeKMZTmpDir = kmzAirportPath + '/dae/';
+
+    distutils.dir_util._path_created = {}
+    # Copy the Required DAE Files and Contents
+    for daeName in daeAdd:
+        src = daeFolder + daeName
+        dest = daeKMZTmpDir + daeName
+        print(src,dest)
+        distutils.dir_util.copy_tree(src, dest)
+
+    # As the KMZTmp now has Directory Structure for KMZ for the given airport
+    # We can Add it to ZIP and Rename ZIP to KMZ and be done with it
+    shutil.make_archive(kmzFinalFolder + fileName, 'zip', kmzAirportPath)
+    zip_name = kmzFinalFolder + fileName + '.zip'
+    kmz_name = kmzFinalFolder + fileName + '.KMZ'
+    shutil.move(zip_name, kmz_name)
+    print('Finished ', kmzTmpFolder)
+    
+    # Remove TMP Folder When Unrequired
+    shutil.rmtree(kmzTmpFolder,True)
+
+	
+def createPlacemarkKMZ(kmlDoc, row, icaoAirport):
+    placemark = kmlDoc.createElement('Placemark')
+    extended = kmlDoc.createElement('ExtendedData')
+    name = kmlDoc.createElement('name')
+    runway = kmlDoc.createElement('Data')
+    obs_type = kmlDoc.createElement('Data')
+    marking = kmlDoc.createElement('Data')
+    remark = kmlDoc.createElement('Data')
+    elevation = kmlDoc.createElement('Data')
+    runway_value = kmlDoc.createElement('value')
+    obs_type_value = kmlDoc.createElement('value')
+    marking_value = kmlDoc.createElement('value')
+    remark_value = kmlDoc.createElement('value')
+    elevation_value = kmlDoc.createElement('value')
+    model = kmlDoc.createElement('Model')
+    altitude_mode = kmlDoc.createElement('altitudeMode')
+    location = kmlDoc.createElement('Location')
+    longitude = kmlDoc.createElement('longitude')
+    latitude = kmlDoc.createElement('latitude')
+    altitude = kmlDoc.createElement('altitude')
+    orientation = kmlDoc.createElement('Orientation')
+    heading = kmlDoc.createElement('heading')
+    tilt = kmlDoc.createElement('tilt')
+    roll = kmlDoc.createElement('roll')
+    scale = kmlDoc.createElement('Scale')
+    x = kmlDoc.createElement('x')
+    y = kmlDoc.createElement('y')
+    z = kmlDoc.createElement('z')
+    link = kmlDoc.createElement('Link')
+    href = kmlDoc.createElement('href')
+#above block of codecreates all the tags required for the project more can be added
+    placemark.appendChild(name)
+    placemark.appendChild(extended)
+    placemark.appendChild(model)
+#append the tags according to parent child relation
+    extended.appendChild(runway)
+    extended.appendChild(obs_type)
+    extended.appendChild(marking)
+    extended.appendChild(remark)
+    extended.appendChild(elevation)
+
+
+    runway.appendChild(runway_value)
+    obs_type.appendChild(obs_type_value)
+    marking.appendChild(marking_value)
+    remark.appendChild(remark_value)
+    elevation.appendChild(elevation_value)
+
+    model.appendChild(altitude_mode)
+    model.appendChild(location)
+    model.appendChild(orientation)
+    model.appendChild(scale)
+    model.appendChild(link)
+
+    location.appendChild(longitude)
+    location.appendChild(latitude)
+    location.appendChild(altitude)
+
+    orientation.appendChild(heading)
+    orientation.appendChild(tilt)
+    orientation.appendChild(roll)
+
+    scale.appendChild(x)
+    scale.appendChild(y)
+    scale.appendChild(z)
+
+    link.appendChild(href)
+
+    #this piece of code does this <data name="">
+    runway.setAttribute('name', '  Runway  ')
+    obs_type.setAttribute('name', '  Obstacle Type  ')
+    marking.setAttribute('name', '  Marking  ')
+    remark.setAttribute('name', '  Remark  ')
+    elevation.setAttribute('name' , '  Elevation  ')
+
+    #text nodes are basically what values you write in your enclosing tags
+    runway_value.appendChild(kmlDoc.createTextNode(row[0]))
+    obs_type_value.appendChild(kmlDoc.createTextNode(row[1]))
+    marking_value.appendChild(kmlDoc.createTextNode(row[5]))
+    remark_value.appendChild(kmlDoc.createTextNode(row[6]))
+    elevation_value.appendChild(kmlDoc.createTextNode(row[4] + ' ft'))
+    latitude.appendChild(kmlDoc.createTextNode(row[2]))
+    longitude.appendChild(kmlDoc.createTextNode(row[3]))
+    altitude.appendChild(kmlDoc.createTextNode('0'))
+    heading.appendChild(kmlDoc.createTextNode('0'))
+    tilt.appendChild(kmlDoc.createTextNode('0'))
+    roll.appendChild(kmlDoc.createTextNode('0'))
+    x.appendChild(kmlDoc.createTextNode('5'))
+    y.appendChild(kmlDoc.createTextNode('5'))
+    z.appendChild(kmlDoc.createTextNode('5'))
+    altitude_mode.appendChild(kmlDoc.createTextNode('relativeToGround'))
+    name.appendChild(kmlDoc.createTextNode(row[6]))
+
+    dae_path = 'dae/' + row[1].upper() + '/models/untitled.dae' # Find Relative Path
+    href.appendChild(kmlDoc.createTextNode(dae_path))
+#link to the 3d models
+    return placemark
+#placemark is returned to become the child of document
+
+
 def createKML2D(fileName: str, obstacles: list):
     filePath = 'Data/KML2D/' + fileName + '.KML'
 
@@ -270,6 +442,8 @@ def search():
 
     if data_type.lower() == 'kml':
         return GenerateKML2DFromObstacles(CreateFileNameFromParams(icao,affected,obs_type,latitude,longitude,elevation,marking,remark),obstacles);
+    if data_type.lower() == 'kmz':
+        return GenerateKMZFromObstacles(CreateFileNameFromParams(icao,affected,obs_type,latitude,longitude,elevation,marking,remark),obstacles);
     if data_type.lower() == 'json':
         return flask.jsonify([obstacle.serialize() for obstacle in obstacles])
 

@@ -73,71 +73,76 @@
             <div class="row testing">
                 <div class="col-lg-1 innerpad1">&nbsp;</div>
                 <div class="col-lg-10 text-center innerpad1 greybg">
-                    <h2 class="section-heading text-uppercase" style="color: white"></h2>
-                    <h3 class="section-subheading text-uppercase" style="color: white"></h3>
+                    <h2 style="padding-top:7%; padding-bottom: 2%; color:#fed136; text-shadow:black 2px 2px 2px">
+                        Advanced Search</h2>
                 </div>
                 <div class="col-lg-1">&nbsp;</div>
             </div>
-            <div class="row">
-                <div class="col-lg-1 testing">&nbsp;</div>
-                <div class="col-lg-10 testing greybg">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <input type="text" id="myInput" onkeyup="" placeholder="Input1">
+            <div class="container-fluid" style="margin: auto; padding-left: 13%">
+                <div class="row">
+                    <div class="col-lg-1 testing">&nbsp;</div>
+                    <div class="col-lg-10 testing greybg">
+                        <div class="row" style="margin: auto">
+                            <div class="col-sm-4">
+                                <input class="myInput" type="text" id="icao" onkeyup="" placeholder="ICAO Codes">
+                            </div>
+                            <div class="col-sm-4">
+                                <input class="myInput" type="text" id="affected" onkeyup="" placeholder="Affected Area">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <input type="text" id="myInput" onkeyup="" placeholder="Input2">
+                        <div class="row" style="margin: auto">
+                            <div class="col-sm-4">
+                                <input class="myInput" type="text" id="obs_type" onkeyup="" placeholder="Obstacle Type">
+                            </div>
+                            <div class="col-sm-4">
+                                <input class="myInput" type="text" id="elevation" onkeyup="" placeholder="Elevation">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <input type="text" id="myInput" onkeyup="" placeholder="Input3">
+                        <div class="row" style="margin: auto">
+                            <div class="col-sm-4">
+                                <input class="myInput" type="text" id="latitude" onkeyup="" placeholder="Latitude">
+                            </div>
+                            <div class="col-sm-4">
+                                <input class="myInput" type="text" id="longitude" onkeyup="" placeholder="Longitude">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <input type="text" id="myInput" onkeyup="" placeholder="Input4">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <input type="text" id="myInput" onkeyup="" placeholder="Input5">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <input type="text" id="myInput" onkeyup="" placeholder="Input6">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <input type="text" id="myInput" onkeyup="" placeholder="Input7">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <input type="text" id="myInput" onkeyup="" placeholder="Input8">
+                        <div class="row" style="margin: auto">
+                            <div class="col-sm-4">
+                                <input class="myInput" type="text" id="marking" onkeyup="" placeholder="Marking">
+                            </div>
+                            <div class="col-sm-4">
+                                <input class="myInput" type="text" id="remark" onkeyup="" placeholder="Remark">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row text-center">
-                    <div class="col-lg-12">
-                        <button class="btn-primary" id="btn-primary">Preview in 2D</button>>
-                        <button class="btn-primary" id="btn-primary">View in 3D</button>>
-                        <button class="btn-primary" id="btn-primary">Button 3</button>>
-                    </div>
-                </div>
-                <div class="innerpad1">
-                    <div data-role="content" id="Div1">
-                        <div id="accordion" data-role="collapsible-set">
+                <div class="container-fluid" style="margin: auto; padding-right: 30%; padding-left: 15%">
+                    <div class="row text-center">
+                        <div class="col-sm-4">
+                            <button class="btn-primary" id="btn-primary"
+                                style="color:black; text-shadow:white 0.5px 0.5px 0.5px">Preview in 2D</button>
+                        </div>
+                        <div class="col-sm-4">
+                            <button class="btn-primary" id="btn-primary"
+                                style="color:black; text-shadow:white 0.5px 0.5px 0.5px">Download in 3D</button>
+                        </div>
+                        <div class="col-sm-4">
+                            <button class="btn-primary" id="btn-primary"
+                                style="color:black; text-shadow:white 0.5px 0.5px 0.5px">List</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-1">&nbsp;</div>
             </div>
         </div>
+        <div class="innerpad1">
+            <div data-role="content" id="Div1">
+                <div id="accordion" data-role="collapsible-set">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-1">&nbsp;</div>
+    </div>
+    </div>
     </div>
 
     <!-- Footer -->

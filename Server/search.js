@@ -57,7 +57,7 @@ $('#Download3D').click(function () {
         }
     });
 });
-var arr = [' ICAO ', ' Affected ', ' Obstacle Type ', ' Latitude ', ' Longitude ', ' Elevation ', ' Marking ', ' Remark '];
+var arr = [' ICAO ', ' Affected Area ', ' Obstacle Type ', ' Latitude ', ' Longitude ', ' Elevation ', ' Marking ', ' Remark '];
 $('#List').click(function () {
     $.getJSON('/search', GetTextBoxValues('list'), function (array) {
         if (typeof array != "undefined" && array != null && array.length != null && array.length > 0) {

@@ -60,6 +60,7 @@ $('#List').click(function () {
     $.getJSON('/search', GetTextBoxValues('list'), function (array) {
         if (typeof array != "undefined" && array != null && array.length != null && array.length > 0) {
             var tab = document.createElement('table');
+            tab.classList.add("table","table-hover"); //Pending Testing
             var newthead = document.createElement('thead');
             tab.appendChild(newthead);
             var newtr = document.createElement('tr');

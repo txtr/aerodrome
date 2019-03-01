@@ -19,6 +19,21 @@
     left: 50%;
 }
 
+#myInput {
+    width: 50%;
+    /* Half-width */
+    font-size: 16px;
+    /* Increase font-size */
+    padding: 12px 20px 12px 20px;
+    /* Add some padding */
+    border: 1px solid #ddd;
+    /* Add a grey border */
+    margin-bottom: 12px;
+    /* Add some space below the input */
+    margin-left: 25%;
+    left: 50%;
+}
+
 #myUL {
     /* Remove default list styling */
     width: 50%;

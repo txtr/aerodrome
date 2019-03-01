@@ -21,6 +21,9 @@ function renderButton(className, label, onClick) {
 }
 // Template function for our controls
 function renderText(label) {
+  if (!label) {
+    return;
+  }
   var containerNode = document.createElement("div");
   containerNode.setAttribute(
     "style",
@@ -56,7 +59,7 @@ function renderKML(map, ui, icao, name) {
   // Request document parsing. Parsing is an asynchronous operation.
   reader.parse();
 
-  reader.addEventListener("statechange", function() {
+  reader.addEventListener("statechange", function () {
     // Wait till the KML document is fully loaded and parsed
     if (this.getState() === H.data.AbstractReader.State.READY) {
       var parsedObjects = reader.getParsedObjects();
@@ -68,7 +71,7 @@ function renderKML(map, ui, icao, name) {
 
       // Render buttons for zooming into parts of the airport.
       // Function is not a part of API. Scroll to the bottom to see the source.
-      renderButton("btn-primary", "Download in 3D", function() {
+      renderButton("btn-primary", "Download in 3D", function () {
         window.location = kmlNetworkLinkBase + "/" + icao;
       });
       renderText(name);
@@ -77,7 +80,7 @@ function renderKML(map, ui, icao, name) {
       // Notice how we are using event delegation for it
       container.addEventListener(
         "tap",
-        function(evt) {
+        function (evt) {
           var content = evt.target.getData()["description"];
           var position = evt.target.getPosition();
           showKMLBalloon(position, content);
@@ -118,7 +121,7 @@ var map = new H.Map(
 // Initially Hide the DOM
 map.getElement().style.visibility = "hidden";
 // Resize Page
-window.addEventListener("resize", function() {
+window.addEventListener("resize", function () {
   map.getViewPort().resize();
 });
 

@@ -206,6 +206,11 @@ def createKMZ(fileName: str, obstacles: list):
     if pathlib.Path(kmzEndRes).is_file():
         return None
 
+    # Remove TMP Folder When Unrequired
+    shutil.rmtree(kmzTmpFolder,True);
+
+    pathlib.Path(kmzAirportPath).mkdir(parents=True, exist_ok=True) 
+
     # This constructs the KML document from the CSV file.
     kmlDoc = xml.dom.minidom.Document()
 #below code creates a basic structure of how the docs will look 
@@ -215,10 +220,9 @@ def createKMZ(fileName: str, obstacles: list):
     documentElement = kmlDoc.createElement('Document')
     documentElement = kmlElement.appendChild(documentElement)
 
-    # Remove TMP Folder When Unrequired
-    shutil.rmtree(kmzTmpFolder,True);
-
-    pathlib.Path(kmzAirportPath).mkdir(parents=True, exist_ok=True) 
+    documentName = kmlDoc.createElement('name')
+    documentElement.appendChild(documentName)
+    documentName.appendChild(kmlDoc.createTextNode('Filtered Data'))
 
     # Store List of DAE Models to Add
     # List is Unique to Reduce Duplication of Effort
@@ -358,16 +362,21 @@ def createPlacemarkKMZ(kmlDoc, row, icaoAirport):
 def createKML2D(fileName: str, obstacles: list):
     filePath = 'Data/KML2D/' + fileName + '.KML'
 
-    kmlDoc = xml.dom.minidom.Document()
     if pathlib.Path(filePath).is_file():
         return None
 
+    kmlDoc = xml.dom.minidom.Document()
     # This constructs the KML document from the Obstacle Data
     kmlElement = kmlDoc.createElementNS('http://earth.google.com/kml/2.2', 'kml')
     kmlElement.setAttribute('xmlns','http://earth.google.com/kml/2.2')
     kmlElement = kmlDoc.appendChild(kmlElement)
     documentElement = kmlDoc.createElement('Document')
     documentElement = kmlElement.appendChild(documentElement)
+
+    documentName = kmlDoc.createElement('name')
+    documentElement.appendChild(documentName)
+    documentName.appendChild(kmlDoc.createTextNode('Filtered Data'))
+
 
     for obstacle in obstacles:
         placemarkElement = createPlacemark2D(kmlDoc, [obstacle.affected, obstacle.obs_type, obstacle.latitude, obstacle.longitude, obstacle.elevation, obstacle.marking, obstacle.remark])
@@ -428,7 +437,7 @@ def search():
     elevation = flask.request.args.get('elevation', '')
     marking = flask.request.args.get('marking', '')
     remark = flask.request.args.get('remark', '')
-    data_type: str = flask.request.args.get('data_type','json')
+    data_type: str = flask.request.args.get('format','list')
 
     obstacles = Obstacles.query.filter(Obstacles.icao.ilike(GenerateLike(icao)))\
     .filter(Obstacles.affected.ilike(GenerateLike(affected)))\
@@ -444,7 +453,7 @@ def search():
         return GenerateKML2DFromObstacles(CreateFileNameFromParams(icao,affected,obs_type,latitude,longitude,elevation,marking,remark),obstacles);
     if data_type.lower() == 'kmz':
         return GenerateKMZFromObstacles(CreateFileNameFromParams(icao,affected,obs_type,latitude,longitude,elevation,marking,remark),obstacles);
-    if data_type.lower() == 'json':
+    if data_type.lower() == 'list':
         return flask.jsonify([obstacle.serialize() for obstacle in obstacles])
 
 

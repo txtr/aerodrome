@@ -30,6 +30,7 @@ function SetErrorValue(str) {
 }
 $('#Preview2D').click(function () {
     $.getJSON('/search', GetTextBoxValues('kml'), function (data) {
+        $('#indextable').hide();
         var code = data.code;
         if (code) {
             var url = '/map.html?icao=' + code + '&name=';
@@ -44,6 +45,7 @@ $('#Preview2D').click(function () {
 
 $('#Download3D').click(function () {
     $.getJSON('/search', GetTextBoxValues('kmz'), function (data) {
+        $('#indextable').hide();
         var code = data.code;
         if (code) {
             var url = '/kmz/' + code;
@@ -59,6 +61,8 @@ var arr = ['abcd', 'abcd', 'abcd', 'abcd', 'abcd', 'abcd', 'abcd', 'abcd'];
 $('#List').click(function () {
     $.getJSON('/search', GetTextBoxValues('list'), function (array) {
         if (typeof array != "undefined" && array != null && array.length != null && array.length > 0) {
+            $('#indextable').show();
+            $('#indextable').html("");
             var tab = document.createElement('table');
             tab.classList.add("table","table-hover"); //Pending Testing
             var newthead = document.createElement('thead');
@@ -102,9 +106,10 @@ $('#List').click(function () {
                 newtbody.appendChild(newTR);
             }
             $('#indextable').append(tab);
-            console.log('Ihkfxdfnkl');
+            SetErrorValue('');
         }
         else {
+            $('#indextable').hide();
             SetErrorValue(error_value);
         }
     });

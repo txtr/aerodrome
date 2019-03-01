@@ -51,7 +51,7 @@ function showKMLBalloon(position, content) {
 }
 
 // Source https://github.com/heremaps/maps-api-for-javascript-examples/blob/master/map-with-interactive-kml-objects/js/app.js
-function renderKML(map, ui, icao, name) {
+function renderKML(map, ui, icao, name, Show3d) {
   // Create a reader object, that will load data from a KML file
   var url = kml2dBase + "/" + icao;
   var reader = new H.data.kml.Reader(url);
@@ -71,9 +71,10 @@ function renderKML(map, ui, icao, name) {
 
       // Render buttons for zooming into parts of the airport.
       // Function is not a part of API. Scroll to the bottom to see the source.
-      renderButton("btn-primary", "Download in 3D", function () {
-        window.location = kmlNetworkLinkBase + "/" + icao;
-      });
+      if (Show3d)
+        renderButton("btn-primary", "Download in 3D", function () {
+          window.location = kmlNetworkLinkBase + "/" + icao;
+        });
       renderText(name);
 
       // Let's make kml ballon visible by tap on its owner
@@ -152,8 +153,8 @@ var getUrlParameter = function getUrlParameter(sParam) {
 var ui = H.ui.UI.createDefault(map, defaultLayers);
 
 // Step 5: main logic goes here
-function renderAirport(icao, Name) {
-  if (icao != undefined && icao.length != 0) renderKML(map, ui, icao, Name);
+function renderAirport(icao, Name, Show3D) {
+  if (icao != undefined && icao.length != 0) renderKML(map, ui, icao, Name, Show3D);
   // Go Back
   else window.history.go(-1);
 }
@@ -161,5 +162,6 @@ function renderAirport(icao, Name) {
 // Get ICAO Parameter from Uri
 var ICAO = getUrlParameter("icao");
 var Name = getUrlParameter("name");
-
-renderAirport(ICAO.toUpperCase(), Name);
+var Show3D = getUrlParameter('show3d') == "true" ? true : false;
+console.log(getUrlParameter('show3d'));
+renderAirport(ICAO.toUpperCase(), Name, Show3D);

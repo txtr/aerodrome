@@ -33,7 +33,7 @@ $('#Preview2D').click(function () {
         $('#indextable').hide();
         var code = data.code;
         if (code) {
-            var url = '/map.html?icao=' + code + '&name=';
+            var url = '/map.html?icao=' + code + '&name=' + '&show3d=false';
             window.open(url, '_blank');
             SetErrorValue('');
         }

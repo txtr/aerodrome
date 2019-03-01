@@ -1,4 +1,4 @@
-error_value = "No Object found to satisfy given parameters";
+error_value = "No Obstacles found satisfying the given parameters";
 function GetTextBoxValue(id) {
     return document.getElementById(id).value;
 }

@@ -404,7 +404,7 @@ def createPlacemark2D(kmlDoc, row):
     return placemark
 
 def CreateFileNameFromParams(icao:str, affected:str, obs_type:str,latitude:str, longitude:str, elevation:str, marking: str, remark:str):
-    fileName: str = ''
+    fileName: str = 'a'
     if icao:
         fileName += 'ic-' + icao.upper() + '_'
     if affected:

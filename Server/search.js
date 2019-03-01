@@ -55,10 +55,53 @@ $('#Download3D').click(function () {
         }
     });
 });
+var arr = ['abcd', 'abcd', 'abcd', 'abcd', 'abcd', 'abcd', 'abcd', 'abcd'];
 $('#List').click(function () {
     $.getJSON('/search', GetTextBoxValues('list'), function (array) {
-        if(typeof array != "undefined" && array != null && array.length != null && array.length > 0){
-            // SetErrorValue('Hello');
+        if (typeof array != "undefined" && array != null && array.length != null && array.length > 0) {
+            var tab = document.createElement('table');
+            var newthead = document.createElement('thead');
+            tab.appendChild(newthead);
+            var newtr = document.createElement('tr');
+            newthead.appendChild(newtr);
+            for (var i = 0; i < arr.length; ++i) {
+                var newth = document.createElement('th');
+                newth.innerText = arr[i];
+                newtr.appendChild(newth);
+            }
+            var newtbody = document.createElement('tbody');
+            tab.appendChild(newtbody);
+            // newtbody.appendChild(newtr);
+            for (var i = 0; i < array.length; ++i) {
+                var newTR = document.createElement('tr');
+                var icao = document.createElement('td');
+                icao.appendChild(document.createTextNode(array[i].icao));
+                newTR.appendChild(icao);
+                var affected = document.createElement('td');
+                affected.appendChild(document.createTextNode(array[i].affected));
+                newTR.appendChild(affected);
+                var obs_type = document.createElement('td');
+                obs_type.appendChild(document.createTextNode(array[i].obs_type));
+                newTR.appendChild(obs_type);
+                var latitude = document.createElement('td');
+                latitude.appendChild(document.createTextNode(array[i].latitude));
+                newTR.appendChild(latitude);
+                var longitude = document.createElement('td');
+                longitude.appendChild(document.createTextNode(array[i].longitude));
+                newTR.appendChild(longitude);
+                var elevation = document.createElement('td');
+                elevation.appendChild(document.createTextNode(array[i].elevation));
+                newTR.appendChild(elevation);
+                var marking = document.createElement('td');
+                marking.appendChild(document.createTextNode(array[i].marking));
+                newTR.appendChild(marking);
+                var remark = document.createElement('td');
+                remark.appendChild(document.createTextNode(array[i].remark));
+                newTR.appendChild(remark);
+                newtbody.appendChild(newTR);
+            }
+            $('#indextable').append(tab);
+            console.log('Ihkfxdfnkl');
         }
         else {
             SetErrorValue(error_value);

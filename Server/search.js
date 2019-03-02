@@ -1,4 +1,4 @@
-error_value = "No Object found to satisfy given parameters";
+error_value = "No Obstacles found satisfying the given parameters";
 function GetTextBoxValue(id) {
     return document.getElementById(id).value;
 }
@@ -30,9 +30,10 @@ function SetErrorValue(str) {
 }
 $('#Preview2D').click(function () {
     $.getJSON('/search', GetTextBoxValues('kml'), function (data) {
+        $('#indextable').hide();
         var code = data.code;
         if (code) {
-            var url = '/map.html?icao=' + code + '&name=';
+            var url = '/map.html?icao=' + code + '&name=' + '&show3d=false';
             window.open(url, '_blank');
             SetErrorValue('');
         }
@@ -44,6 +45,7 @@ $('#Preview2D').click(function () {
 
 $('#Download3D').click(function () {
     $.getJSON('/search', GetTextBoxValues('kmz'), function (data) {
+        $('#indextable').hide();
         var code = data.code;
         if (code) {
             var url = '/kmz/' + code;
@@ -55,11 +57,14 @@ $('#Download3D').click(function () {
         }
     });
 });
-var arr = ['abcd', 'abcd', 'abcd', 'abcd', 'abcd', 'abcd', 'abcd', 'abcd'];
+var arr = [' ICAO ', ' Affected Area ', ' Obstacle Type ', ' Latitude ', ' Longitude ', ' Elevation ', ' Marking ', ' Remark '];
 $('#List').click(function () {
     $.getJSON('/search', GetTextBoxValues('list'), function (array) {
         if (typeof array != "undefined" && array != null && array.length != null && array.length > 0) {
+            $('#indextable').show();
+            $('#indextable').html("");
             var tab = document.createElement('table');
+            tab.classList.add("table","table-hover"); //Pending Testing
             var newthead = document.createElement('thead');
             tab.appendChild(newthead);
             var newtr = document.createElement('tr');
@@ -101,9 +106,10 @@ $('#List').click(function () {
                 newtbody.appendChild(newTR);
             }
             $('#indextable').append(tab);
-            console.log('Ihkfxdfnkl');
+            SetErrorValue('');
         }
         else {
+            $('#indextable').hide();
             SetErrorValue(error_value);
         }
     });

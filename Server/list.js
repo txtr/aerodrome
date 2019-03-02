@@ -14,7 +14,7 @@ $.getJSON("/icao/", function (data) {
 
         newH3.innerText = data[count].name;//+' ('+data[count].Codes+')';
 
-        var kml2DPath = 'map.html?icao=' + data[count].code + '&name=' + data[count].name;
+        var kml2DPath = 'map.html?icao=' + data[count].code + '&name=' + data[count].name + '&show3d=true';
         var but2D = document.createElement('a');
         but2D.classList.add("btn", "btn-primary");
         but2D.setAttribute("role", "button");

@@ -45,6 +45,9 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="about.html">About</a>
                     </li>
                     <li class="nav-item">
@@ -57,7 +60,7 @@
                         <a class="nav-link js-scroll-trigger" href="spons.html">Sponsors</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="search.html">Search</a>
+                        <a class="nav-link js-scroll-trigger" href="search.html">Filter</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="contact.html">Contact</a>
@@ -69,12 +72,12 @@
 
     <!-- Search Bars -->
     <div id="aerodrome-list">
-        <div class="container-fluid masthead1 innerpad1">
+        <div class="container-fluid masthead1 innerpad1" style="padding-bottom: 6.9%">
             <div class="row testing">
                 <div class="col-lg-1 innerpad1">&nbsp;</div>
                 <div class="col-lg-10 text-center innerpad1 greybg">
-                    <h2 style="padding-top:7%; padding-bottom: 2%; color:#fed136; text-shadow:black 2px 2px 2px">
-                        Advanced Search</h2>
+                    <h1 style="padding-top:7%; padding-bottom: 2%; color:#fed136; text-shadow:black 2px 2px 2px">
+                        Advanced Search</h1>
                 </div>
                 <div class="col-lg-1">&nbsp;</div>
             </div>
@@ -116,29 +119,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="container-fluid" style="margin: auto; padding-right: 30%; padding-left: 15%">
-                    <div class="row text-center">
+                <div class="container-fluid" style="margin: auto; padding-right: 30%; padding-left: 15%; padding-bottom: 5; padding-top: 35%%">
+                    <div class="row text-center" style="padding-top: 5%; padding-bottom: 5%">
                         <div class="col-sm-4">
-                            <button class="btn-primary" id="Preview2D"
+                            <button class="btn-primary btn-lg" id="Preview2D"
                                 style="color:black; text-shadow:white 0.5px 0.5px 0.5px">Preview in 2D</button>
                         </div>
                         <div class="col-sm-4">
-                            <button class="btn-primary" id="Download3D"
+                            <button class="btn-primary btn-lg" id="Download3D"
                                 style="color:black; text-shadow:white 0.5px 0.5px 0.5px">Download in 3D</button>
                         </div>
                         <div class="col-sm-4">
-                            <button class="btn-primary" id="List"
+                            <button class="btn-primary btn-lg" id="List"
                                 style="color:black; text-shadow:white 0.5px 0.5px 0.5px">List</button>
                         </div>
                     </div>
                     <div class="row text-center">
                         <div class="error" style="margin: auto">
-                            <h3 id="error_class"></h3>
+                            <h2 id="error_class"></h2>
                         </div>
-                        <div id="indextable">
-                        </div>
+                       
                     </div>
-                    
+
 
                 </div>
             </div>
@@ -146,7 +148,7 @@
     </div>
     <div class="innerpad1">
         <div data-role="content" id="Div1">
-            
+            <div id="indextable"></div>
         </div>
     </div>
     <div class="col-lg-1">&nbsp;</div>
